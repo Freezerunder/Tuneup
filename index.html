@@ -27,10 +27,10 @@
   --text:      #e8ecff;
   --muted:     #9aa3c9;
   --dim:       #6b739b;
-  --accent:    #6c8cff;
-  --accent-2:  #b06cff;
-  --accent-3:  #35e0d0;
-  --warn:      #ffb547;
+  --accent:    #4a7fd1;
+  --accent-2:  #c97b3a;
+  --accent-3:  #6b8f4e;
+  --warn:      #e0973f;
   --radius:    18px;
   --shadow:    0 24px 70px -20px rgba(0,0,0,.85);
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
@@ -59,9 +59,9 @@ body {
   pointer-events: none;
   overflow: hidden;
   background:
-    radial-gradient(1200px 700px at 15% -10%, rgba(108,140,255,.22), transparent 60%),
-    radial-gradient(1000px 600px at 90% 5%,  rgba(176,108,255,.18), transparent 60%),
-    radial-gradient(900px 700px at 50% 110%, rgba(53,224,208,.10), transparent 60%),
+    radial-gradient(1200px 700px at 15% -10%, rgba(74,127,209,.22), transparent 60%),
+    radial-gradient(1000px 600px at 90% 5%,  rgba(201,123,58,.18), transparent 60%),
+    radial-gradient(900px 700px at 50% 110%, rgba(107,143,78,.10), transparent 60%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 45%, var(--bg) 100%);
 }
 
@@ -91,9 +91,9 @@ body {
   opacity: .35;
   will-change: transform;
 }
-.orb.a { width: 46vw; height: 46vw; left: -8vw;  top: 4vh;  background: #4a6bff; }
-.orb.b { width: 38vw; height: 38vw; right: -6vw; top: 22vh; background: #a24aff; }
-.orb.c { width: 30vw; height: 30vw; left: 40vw;  top: 62vh; background: #1fbfae; opacity: .22; }
+.orb.a { width: 46vw; height: 46vw; left: -8vw;  top: 4vh;  background: #3f6fc4; }
+.orb.b { width: 38vw; height: 38vw; right: -6vw; top: 22vh; background: #b8703a; }
+.orb.c { width: 30vw; height: 30vw; left: 40vw;  top: 62vh; background: #4f7d5a; opacity: .22; }
 
 /* Star layer: a single element painted with radial-gradient "stars" so we get
    a dense field for the cost of one node. */
@@ -131,7 +131,7 @@ body {
 .brand .bolt {
   width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center;
   background: linear-gradient(140deg, var(--accent), var(--accent-2));
-  box-shadow: 0 0 22px rgba(108,140,255,.55);
+  box-shadow: 0 0 22px rgba(74,127,209,.55);
   font-size: 16px;
 }
 .nav-links { margin-left: auto; display: flex; gap: 6px; align-items: center; }
@@ -162,7 +162,7 @@ body {
 }
 .side-nav .side-ico { line-height: 1; }
 .side-nav a:hover, .side-nav a.on { background: var(--panel-hi); border-color: var(--accent); transform: scale(1.1); }
-.side-nav a.on { box-shadow: 0 0 0 2px rgba(108,140,255,.32); }
+.side-nav a.on { box-shadow: 0 0 0 2px rgba(74,127,209,.32); }
 .side-nav .side-label {
   position: absolute; right: 40px; top: 50%;
   transform: translateY(-50%) translateX(6px);
@@ -195,8 +195,8 @@ body {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 12.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
   color: var(--accent-3);
-  border: 1px solid rgba(53,224,208,.28);
-  background: rgba(53,224,208,.07);
+  border: 1px solid rgba(107,143,78,.28);
+  background: rgba(107,143,78,.07);
   padding: 6px 13px; border-radius: 999px;
   margin-bottom: 22px;
 }
@@ -215,7 +215,7 @@ h1 {
   font-weight: 800;
 }
 h1 .grad {
-  background: linear-gradient(105deg, #8ea6ff 0%, #c98cff 42%, #4fe6d6 100%);
+  background: linear-gradient(105deg, #6f93d9 0%, #c97b3a 42%, #3f8f8a 100%);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
 }
@@ -233,9 +233,9 @@ h1 .grad {
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #fff;
-  box-shadow: 0 10px 34px -8px rgba(108,140,255,.7);
+  box-shadow: 0 10px 34px -8px rgba(74,127,209,.7);
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 42px -8px rgba(108,140,255,.85); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 42px -8px rgba(74,127,209,.85); }
 .btn-ghost { background: var(--panel); color: var(--text); border-color: var(--line-hi); }
 .btn-ghost:hover { background: var(--panel-hi); transform: translateY(-2px); }
 
@@ -290,7 +290,39 @@ h1 .grad {
   transition: border-color .2s, box-shadow .2s;
 }
 #search::placeholder { color: var(--dim); }
-#search:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(108,140,255,.16); }
+#search:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(74,127,209,.16); }
+
+/* Filters live behind one toggle rather than sitting open as a permanent wall
+   of chips — the OS row plus 11 category chips read as clutter next to the
+   search box at 142+ apps. The panel drops down on demand and closes itself
+   once a choice is made. */
+.filter-toggle {
+  display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0;
+  padding: 11px 16px; border-radius: 11px; font-size: 14px; font-weight: 650;
+  background: var(--panel); border: 1px solid var(--line-hi); color: var(--text);
+  cursor: pointer; font-family: inherit; transition: all .2s;
+}
+.filter-toggle:hover { border-color: var(--accent); }
+.filter-toggle.on { border-color: var(--accent); background: var(--panel-hi); }
+.filter-toggle svg { opacity: .8; transition: transform .2s; flex-shrink: 0; }
+.filter-toggle.on svg { transform: rotate(180deg); }
+.filter-count {
+  min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px;
+  background: var(--accent); color: #fff; font-size: 11px; font-weight: 800;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.filter-count[hidden] { display: none; }
+.filter-panel {
+  overflow: hidden; max-height: 0; opacity: 0;
+  transition: max-height .25s ease, opacity .2s ease;
+}
+.filter-panel.open { max-height: 220px; opacity: 1; }
+.filter-panel-inner { padding-top: 14px; }
+.filter-group + .filter-group { margin-top: 12px; }
+.filter-group-label {
+  display: block; font-size: 11px; font-weight: 800; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--dim); margin-bottom: 8px;
+}
 
 .filters { display: flex; gap: 6px; flex-wrap: wrap; }
 .chip {
@@ -301,9 +333,9 @@ h1 .grad {
 }
 .chip:hover { color: var(--text); border-color: var(--line-hi); }
 .chip.on {
-  background: linear-gradient(135deg, rgba(108,140,255,.9), rgba(176,108,255,.9));
+  background: linear-gradient(135deg, rgba(74,127,209,.9), rgba(201,123,58,.9));
   color: #fff; border-color: transparent;
-  box-shadow: 0 6px 20px -6px rgba(108,140,255,.7);
+  box-shadow: 0 6px 20px -6px rgba(74,127,209,.7);
 }
 
 /* ------------------------------ sections ---------------------------------- */
@@ -324,14 +356,14 @@ h1 .grad {
    once you scroll; a per-section root keeps the vanishing point local. */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(236px, 1fr));
+  gap: 16px;
   perspective: 1600px;
 }
 
 .card {
   position: relative;
-  border-radius: var(--radius);
+  border-radius: 14px;
   border: 1px solid var(--line);
   background: linear-gradient(165deg, rgba(23,27,48,.72), rgba(11,13,25,.82));
   backdrop-filter: blur(10px);
@@ -341,9 +373,9 @@ h1 .grad {
   display: flex; flex-direction: column;
   /* Reveal-on-scroll start state; .in flips these to rest. */
   opacity: 0;
-  transform: translateY(46px) rotateX(-11deg) scale(.97);
-  transition: opacity .7s cubic-bezier(.2,.8,.2,1),
-              transform .7s cubic-bezier(.2,.8,.2,1),
+  transform: translateY(30px) rotateX(-8deg) scale(.98);
+  transition: opacity .55s cubic-bezier(.2,.8,.2,1),
+              transform .55s cubic-bezier(.2,.8,.2,1),
               border-color .3s, box-shadow .3s;
 }
 .card.in { opacity: 1; transform: none; }
@@ -354,8 +386,8 @@ h1 .grad {
   opacity: 0; transition: opacity .3s;
 }
 .card:hover::after { opacity: 1; }
-.card:hover { border-color: var(--line-hi); box-shadow: 0 30px 70px -24px rgba(0,0,0,.9); }
-.card.tilt { transition: opacity .7s cubic-bezier(.2,.8,.2,1), border-color .3s, box-shadow .3s; }
+.card:hover { border-color: var(--line-hi); box-shadow: 0 18px 40px -18px rgba(0,0,0,.9); }
+.card.tilt { transition: opacity .55s cubic-bezier(.2,.8,.2,1), border-color .3s, box-shadow .3s; }
 
 .card-media {
   position: relative;
@@ -372,41 +404,44 @@ h1 .grad {
   backdrop-filter: blur(6px);
 }
 
-.card-body { padding: 18px 19px 19px; display: flex; flex-direction: column; flex: 1; transform: translateZ(14px); }
-.card-top { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 11px; }
+.card-body { padding: 14px 15px 15px; display: flex; flex-direction: column; flex: 1; transform: translateZ(14px); }
+.card-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
 .app-icon {
-  width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0;
-  display: grid; place-items: center; font-size: 20px;
+  width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
+  display: grid; place-items: center; font-size: 16px;
   border: 1px solid var(--line-hi);
   box-shadow: 0 6px 18px -6px rgba(0,0,0,.8);
 }
-.card h3 { margin: 0 0 2px; font-size: 17.5px; letter-spacing: -.02em; font-weight: 700; }
-.tagline { font-size: 12.5px; color: var(--accent-3); font-weight: 600; }
-.desc { color: var(--muted); font-size: 14.2px; margin: 0 0 14px; flex: 1; }
-
-.tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 15px; }
-.tag {
-  font-size: 11px; font-weight: 600; padding: 3.5px 8px; border-radius: 6px;
-  background: rgba(108,140,255,.1); border: 1px solid rgba(108,140,255,.22); color: #a9bcff;
+.card h3 { margin: 0 0 1px; font-size: 15px; letter-spacing: -.02em; font-weight: 700; }
+.tagline { font-size: 11px; color: var(--accent-3); font-weight: 600; }
+.desc {
+  color: var(--muted); font-size: 12.6px; line-height: 1.5; margin: 0 0 11px; flex: 1;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;
 }
-.tag.free  { background: rgba(53,224,208,.1);  border-color: rgba(53,224,208,.26);  color: #6fe9dc; }
-.tag.oss   { background: rgba(176,108,255,.1); border-color: rgba(176,108,255,.26); color: #cba0ff; }
-.tag.paid  { background: rgba(255,181,71,.1);  border-color: rgba(255,181,71,.26);  color: var(--warn); }
 
-.actions { display: flex; gap: 8px; }
+.tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 11px; }
+.tag {
+  font-size: 10px; font-weight: 600; padding: 3px 7px; border-radius: 6px;
+  background: rgba(74,127,209,.1); border: 1px solid rgba(74,127,209,.22); color: #b9c6e8;
+}
+.tag.free  { background: rgba(107,143,78,.1);  border-color: rgba(107,143,78,.26);  color: #3f8f8a; }
+.tag.oss   { background: rgba(201,123,58,.1); border-color: rgba(201,123,58,.26); color: #e0b98a; }
+.tag.paid  { background: rgba(224,151,63,.1);  border-color: rgba(224,151,63,.26);  color: var(--warn); }
+
+.actions { display: flex; gap: 7px; }
 .dl {
-  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 10px 14px; border-radius: 10px; font-size: 14px; font-weight: 650;
+  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  padding: 8px 12px; border-radius: 9px; font-size: 12.6px; font-weight: 650;
   text-decoration: none; color: #fff;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   transition: transform .16s, box-shadow .16s, filter .16s;
-  box-shadow: 0 8px 22px -8px rgba(108,140,255,.75);
+  box-shadow: 0 8px 22px -8px rgba(74,127,209,.75);
 }
-.dl:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 12px 28px -8px rgba(108,140,255,.9); }
+.dl:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 12px 28px -8px rgba(74,127,209,.9); }
 .dl.script { background: linear-gradient(135deg, #4b5578, #333c5c); box-shadow: none; }
 .src {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 42px; border-radius: 10px; text-decoration: none;
+  width: 36px; border-radius: 9px; text-decoration: none;
   background: var(--panel); border: 1px solid var(--line-hi); color: var(--muted);
   transition: all .16s;
 }
@@ -414,7 +449,7 @@ h1 .grad {
 
 .note {
   margin-top: 11px; font-size: 12px; color: var(--warn);
-  background: rgba(255,181,71,.07); border: 1px solid rgba(255,181,71,.2);
+  background: rgba(224,151,63,.07); border: 1px solid rgba(224,151,63,.2);
   border-radius: 8px; padding: 8px 10px; line-height: 1.45;
 }
 .note code { font-family: var(--mono); font-size: 11px; color: #ffd490; word-break: break-all; }
@@ -447,14 +482,14 @@ h1 .grad {
   background: linear-gradient(165deg, rgba(23,27,48,.6), rgba(11,13,25,.72));
   overflow: hidden;
 }
-.term-card[data-tos="mac"] { border-left: 3px solid #8ea6ff; }
-.term-card[data-tos="win"] { border-left: 3px solid #4fd8ff; }
+.term-card[data-tos="mac"] { border-left: 3px solid #6f93d9; }
+.term-card[data-tos="win"] { border-left: 3px solid #7a8699; }
 .term-head { padding: 14px 16px 4px; }
 .term-head h3 { margin: 0 0 4px; font-size: 15px; font-weight: 700; letter-spacing: -.01em; }
 .term-head p { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
 .req-tag {
   font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
-  color: var(--accent-3); background: rgba(53,224,208,.1); border: 1px solid rgba(53,224,208,.28);
+  color: var(--accent-3); background: rgba(107,143,78,.1); border: 1px solid rgba(107,143,78,.28);
   padding: 2px 7px; border-radius: 5px; margin-left: 7px; vertical-align: 2px;
 }
 .term-card[data-requires="1"] { border-left-style: dashed; }
@@ -472,10 +507,10 @@ h1 .grad {
   color: var(--muted); cursor: pointer; transition: all .15s;
 }
 .term-copy:hover { color: var(--text); background: var(--panel-hi); }
-.term-copy.done { color: var(--accent-3); border-color: rgba(53,224,208,.4); }
+.term-copy.done { color: var(--accent-3); border-color: rgba(107,143,78,.4); }
 .term-warn {
   margin: 0 14px 14px; font-size: 11.5px; color: var(--warn);
-  background: rgba(255,181,71,.07); border: 1px solid rgba(255,181,71,.2);
+  background: rgba(224,151,63,.07); border: 1px solid rgba(224,151,63,.2);
   border-radius: 7px; padding: 7px 10px; line-height: 1.45;
 }
 
@@ -500,7 +535,7 @@ h1 .grad {
 .doctor-step-copy span { color: var(--muted); font-size: 12.2px; }
 .doctor-step .opt-tag {
   font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
-  color: var(--warn); background: rgba(255,181,71,.1); border: 1px solid rgba(255,181,71,.25);
+  color: var(--warn); background: rgba(224,151,63,.1); border: 1px solid rgba(224,151,63,.25);
   padding: 1.5px 6px; border-radius: 5px; margin-left: 7px; vertical-align: 1px;
 }
 .doctor-output { display: flex; flex-direction: column; }
@@ -517,14 +552,18 @@ h1 .grad {
 
 /* ------------------------------ responsive -------------------------------- */
 /* On wide monitors the 1180px container leaves a lot of dead space either
-   side. Widen it in steps as room allows — 4 columns of app cards around
-   1400px, 5 columns past ~1700px — rather than jumping straight to a fixed
-   column count, so the layout stays fluid at in-between widths too. */
+   side. Widen it in steps as room allows — cards stay ~236px wide throughout,
+   so more of them fit per row as the container grows (4 at base, up to 7 on
+   an ultrawide) — rather than jumping straight to a fixed column count, so
+   the layout stays fluid at in-between widths too. */
 @media (min-width: 1400px) {
   .container { width: min(1360px, 90vw); }
 }
 @media (min-width: 1700px) {
   .container { width: min(1680px, 88vw); }
+}
+@media (min-width: 2000px) {
+  .container { width: min(1960px, 86vw); }
 }
 @media (max-width: 960px) {
   .hero-grid { grid-template-columns: 1fr; gap: 30px; }
@@ -640,15 +679,29 @@ h1 .grad {
         </svg>
         <input id="search" type="search" placeholder="Search 126 apps — try “battery”, “cleanup”, “transfer”…" autocomplete="off">
       </div>
-      <div class="filters" id="filters">
-        <button class="chip on" data-filter="all">Everything</button>
-        <button class="chip" data-filter="mac">macOS</button>
-        <button class="chip" data-filter="win">Windows</button>
-        <button class="chip" data-filter="both">Cross-platform</button>
-      </div>
+      <button class="filter-toggle" id="filterToggle" type="button" aria-expanded="false" aria-controls="filterPanel">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M7 12h10"/><path d="M10 18h4"/></svg>
+        Filters
+        <span class="filter-count" id="filterCount" hidden>0</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
     </div>
-    <div class="container">
-      <div class="filters" id="catFilters" style="margin-top:9px"></div>
+    <div class="filter-panel" id="filterPanel">
+      <div class="container filter-panel-inner">
+        <div class="filter-group">
+          <span class="filter-group-label">Platform</span>
+          <div class="filters" id="filters">
+            <button class="chip on" data-filter="all">Everything</button>
+            <button class="chip" data-filter="mac">macOS</button>
+            <button class="chip" data-filter="win">Windows</button>
+            <button class="chip" data-filter="both">Cross-platform</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-group-label">Category</span>
+          <div class="filters" id="catFilters"></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -729,21 +782,21 @@ h1 .grad {
       <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
         <div class="card in" style="opacity:1;transform:none">
           <div class="card-body">
-            <div class="card-top"><div class="app-icon" style="background:linear-gradient(140deg,#6c8cff,#b06cff)">1</div>
+            <div class="card-top"><div class="app-icon" style="background:linear-gradient(140deg,#4a7fd1,#c97b3a)">1</div>
               <div><h3>Nothing is hosted here</h3><span class="tagline">Straight to the source</span></div></div>
             <p class="desc">Every download button points at the developer's own release page or site — GitHub Releases, or the vendor's download page. No mirrors, no repackaged installers, no bundled extras. That means you always get the current version, signed by whoever actually made it.</p>
           </div>
         </div>
         <div class="card in" style="opacity:1;transform:none">
           <div class="card-body">
-            <div class="card-top"><div class="app-icon" style="background:linear-gradient(140deg,#35e0d0,#6c8cff)">2</div>
+            <div class="card-top"><div class="app-icon" style="background:linear-gradient(140deg,#6b8f4e,#4a7fd1)">2</div>
               <div><h3>Links point at “latest”</h3><span class="tagline">They don't rot</span></div></div>
             <p class="desc">For anything on GitHub the link goes to <code style="font-family:var(--mono);font-size:12px">/releases/latest</code> rather than a pinned file. When the developer ships an update, this page is already pointing at it — there's no stale version number to go out of date.</p>
           </div>
         </div>
         <div class="card in" style="opacity:1;transform:none">
           <div class="card-body">
-            <div class="card-top"><div class="app-icon" style="background:linear-gradient(140deg,#b06cff,#ff6ca8)">3</div>
+            <div class="card-top"><div class="app-icon" style="background:linear-gradient(140deg,#c97b3a,#ff6ca8)">3</div>
               <div><h3>The previews are drawings</h3><span class="tagline">Not screenshots</span></div></div>
             <p class="desc">Each card shows a hand-drawn diagram of what that app actually puts on your screen — the notch strip, the charge gauge, the search results list. They're stylised on purpose, so nothing here pretends to be a real screenshot of software it isn't.</p>
           </div>
@@ -918,7 +971,7 @@ h1 .grad {
       o += r(28, 26, 22, 22, c, 6, ' fill-opacity=".3"');
       o += bars(60, 28, [82, 54], '#39406b');
       o += r(250, 30, 44, 15, '#2b1420', 5, ' stroke="#ff6b81" stroke-opacity=".4"');
-      o += t(272, 41, 'Remove', '#ff8fa0', 7.5, 700, 'middle');
+      o += t(272, 41, 'Remove', '#b0503a', 7.5, 700, 'middle');
       o += t(20, 76, 'ALSO FOUND — 214 MB OF LEFTOVERS', '#4c5480', 7.5, 700);
       var rows = [['Caches', '86 MB'], ['Preferences', '2 MB'], ['Application Support', '118 MB'], ['Logs / LaunchAgents', '8 MB']];
       for (var i = 0; i < rows.length; i++) {
@@ -1084,7 +1137,7 @@ h1 .grad {
         o += r(24, y, 272, 16, '#111530', 4);
         o += '<rect x="32" y="' + (y + 4) + '" width="8" height="8" rx="2" fill="' + (i < 2 ? c : '#2f3760') + '"/>';
         if (i < 2) o += '<path d="M34 ' + (y + 8) + ' l2 2 l4 -4.5" stroke="#07091a" stroke-width="1.4" fill="none" stroke-linecap="round"/>';
-        o += t(50, y + 11, items[i], i < 2 ? '#a9bcff' : '#5c6698', 7.5, 500);
+        o += t(50, y + 11, items[i], i < 2 ? '#b9c6e8' : '#5c6698', 7.5, 500);
       }
       return svg(o);
     },
@@ -1093,8 +1146,8 @@ h1 .grad {
     toggles: function (c) {
       var o = r(0, 0, W, H, '#0a0d1f', 0);
       o += t(20, 28, 'TELEMETRY & PRIVACY', '#4c5480', 8, 700);
-      o += r(228, 18, 78, 14, '#122b24', 5, ' stroke="#35e0d0" stroke-opacity=".4"');
-      o += t(267, 28.5, 'Recommended', '#6fe9dc', 6.8, 700, 'middle');
+      o += r(228, 18, 78, 14, '#122b24', 5, ' stroke="#6b8f4e" stroke-opacity=".4"');
+      o += t(267, 28.5, 'Recommended', '#3f8f8a', 6.8, 700, 'middle');
       var rows = ['Diagnostic data', 'Advertising ID', 'Activity history', 'Cortana search', 'App telemetry'];
       for (var i = 0; i < 5; i++) {
         var y = 40 + i * 27, off = i !== 3;
@@ -1176,9 +1229,9 @@ h1 .grad {
       o += t(20, 26, 'SENSOR STATUS', '#4c5480', 8, 700);
       o += t(300, 26, 'CURRENT   MIN   MAX', '#39406b', 6.5, 700, 'end');
       o += r(14, 32, 292, 1, '#1e2543', 0);
-      var rows = [['CPU Package', '61°C', '#ff8f6b'], ['CPU Clock', '4.8 GHz', '#6c8cff'],
-                  ['GPU Core', '54°C', '#35e0d0'], ['GPU Memory', '1.9 GHz', '#b06cff'],
-                  ['Fan #1', '1420 RPM', '#8e97bf'], ['Package Power', '48 W', '#ffb547']];
+      var rows = [['CPU Package', '61°C', '#ff8f6b'], ['CPU Clock', '4.8 GHz', '#4a7fd1'],
+                  ['GPU Core', '54°C', '#6b8f4e'], ['GPU Memory', '1.9 GHz', '#c97b3a'],
+                  ['Fan #1', '1420 RPM', '#8e97bf'], ['Package Power', '48 W', '#e0973f']];
       for (var i = 0; i < 6; i++) {
         var y = 46 + i * 22;
         if (i % 2 === 0) o += r(14, y - 8, 292, 20, '#0e1226', 3);
@@ -1201,7 +1254,7 @@ h1 .grad {
         o += r(x, 38 + (54 - 54 * load / 100), 30, 54 * load / 100, c, 4, ' fill-opacity="' + (0.35 + load / 200) + '"');
         o += t(x + 15, 102, 'C' + i, '#4c5480', 6.5, 700, 'middle');
       }
-      var procs = [['chrome.exe', 'Below normal', '#ffb547'], ['game.exe', 'High', '#35e0d0'], ['backup.exe', 'Idle', '#5c6698']];
+      var procs = [['chrome.exe', 'Below normal', '#e0973f'], ['game.exe', 'High', '#6b8f4e'], ['backup.exe', 'Idle', '#5c6698']];
       for (var j = 0; j < 3; j++) {
         var y = 114 + j * 21;
         o += r(14, y, 292, 17, '#111530', 4);
@@ -1468,7 +1521,7 @@ h1 .grad {
       o += t(56, 98, 'to  104.18.32.7 : 443', '#8e97bf', 7.5, 600);
       o += t(56, 109, 'process  /Library/Helpers/unknown-helper', '#4c5480', 6.5, 400);
       o += r(44, 124, 110, 20, '#2b1420', 6, ' stroke="#ff6b81" stroke-opacity=".45"');
-      o += t(99, 137, 'Block', '#ff8fa0', 8, 700, 'middle');
+      o += t(99, 137, 'Block', '#b0503a', 8, 700, 'middle');
       o += r(166, 124, 110, 20, c, 6);
       o += t(221, 137, 'Allow', '#05060c', 8, 800, 'middle');
       return svg(o);
@@ -1539,7 +1592,7 @@ h1 .grad {
       o += '<circle cx="114" cy="72" r="26" fill="' + c + '" fill-opacity=".12"/>';
       o += '<path d="M105 60 l22 12 l-22 12 z" fill="' + c + '" fill-opacity=".8"/>';
       o += '<circle cx="30" cy="30" r="5" fill="#ff5f57"/>';
-      o += t(42, 33, 'REC  00:04:12', '#ff8fa0', 7.5, 700);
+      o += t(42, 33, 'REC  00:04:12', '#b0503a', 7.5, 700);
       o += t(224, 30, 'SOURCES', '#4c5480', 7, 700);
       var src = ['Display 1', 'Webcam', 'Mic', 'Desktop audio'];
       for (var i = 0; i < 4; i++) {
@@ -1773,7 +1826,7 @@ h1 .grad {
 
   function preview(type, color) {
     var fn = P[type];
-    return fn ? fn(color || '#6c8cff') : svg(bars(24, 30, [200, 160, 180], '#2a3154', 6, 10));
+    return fn ? fn(color || '#4a7fd1') : svg(bars(24, 30, [200, 160, 180], '#2a3154', 6, 10));
   }
 
   /* =========================================================================
@@ -1786,35 +1839,35 @@ h1 .grad {
   var APPS = [
     /* ------------------------------- both -------------------------------- */
     {
-      os: 'both', name: 'LocalSend', tag: 'AirDrop for everything', icon: '📡', color: '#35e0d0',
+      os: 'both', name: 'LocalSend', tag: 'AirDrop for everything', icon: '📡', color: '#6b8f4e',
       preview: 'devices', tags: ['Free', 'Open source', 'File transfer'],
       desc: 'Send files and text between a Mac, a PC, a phone — any of them, in any direction — over your own Wi-Fi. No account, no cloud, no size cap, and nothing ever leaves the local network.',
       dl: 'https://localsend.org/download', src: 'https://github.com/localsend/localsend',
       kw: 'transfer send share airdrop wifi network files phone android ios'
     },
     {
-      os: 'both', name: 'Blip', tag: 'Huge files, straight across', icon: '🚀', color: '#6c8cff',
+      os: 'both', name: 'Blip', tag: 'Huge files, straight across', icon: '🚀', color: '#4a7fd1',
       preview: 'transfer', tags: ['Free for personal use', 'File transfer'],
       desc: 'Made for the files too big to email or upload. Blip streams device to device across the internet, so a 60 GB video starts arriving immediately instead of uploading somewhere first and downloading again after.',
       dl: 'https://blip.net/download', src: 'https://blip.net/',
       kw: 'transfer big files internet p2p send resilio large video'
     },
     {
-      os: 'both', name: 'Syncthing', tag: 'Your own private sync', icon: '🔄', color: '#6fe9dc',
+      os: 'both', name: 'Syncthing', tag: 'Your own private sync', icon: '🔄', color: '#3f8f8a',
       preview: 'sync', tags: ['Free', 'Open source', 'Sync'],
       desc: 'Keeps a folder identical across every machine you own, continuously, with no server in the middle and no subscription. The obvious replacement once a cloud drive starts asking for money for space you already have.',
       dl: 'https://syncthing.net/downloads/', src: 'https://syncthing.net/',
       kw: 'sync backup folder dropbox alternative p2p continuous'
     },
     {
-      os: 'both', name: 'Espanso', tag: 'Type less', icon: '⌨️', color: '#b06cff',
+      os: 'both', name: 'Espanso', tag: 'Type less', icon: '⌨️', color: '#c97b3a',
       preview: 'expand', tags: ['Free', 'Open source', 'Productivity'],
       desc: 'A text expander that works in every app at once. Type <code>:addr</code> and your address appears; <code>:sig</code> and your whole email signature does. The compounding time save nobody expects until they try it.',
       dl: 'https://espanso.org/', src: 'https://github.com/espanso/espanso',
       kw: 'text expander snippet shortcut typing macro autocomplete'
     },
     {
-      os: 'both', name: 'Ventoy', tag: 'One stick, every ISO', icon: '💾', color: '#ffb547',
+      os: 'both', name: 'Ventoy', tag: 'One stick, every ISO', icon: '💾', color: '#e0973f',
       preview: 'usb', tags: ['Free', 'Open source', 'Boot'],
       desc: 'Format a USB stick once, then just copy ISO files onto it like ordinary files. Boot from it and pick which one to run. No more reflashing the drive every time you need a different installer.',
       dl: 'https://www.ventoy.net/en/download.html', src: 'https://github.com/ventoy/Ventoy',
@@ -1823,7 +1876,7 @@ h1 .grad {
 
     /* ------------------------------- macOS ------------------------------- */
     {
-      os: 'mac', name: 'Sapphire', tag: 'The notch, put to work', icon: '💎', color: '#6c8cff',
+      os: 'mac', name: 'Sapphire', tag: 'The notch, put to work', icon: '💎', color: '#4a7fd1',
       preview: 'notch', tags: ['Free', 'Open source', 'Menu bar'],
       desc: 'Turns the black bar at the top of a MacBook from wasted space into a live control surface — now playing, battery, AirDrop, clipboard and shortcuts, all reachable without leaving what you are doing.',
       dl: 'https://sapphire-app.tech/', src: 'https://github.com/cshariq/Sapphire',
@@ -1831,21 +1884,21 @@ h1 .grad {
       kw: 'notch dynamic island menu bar macbook media controls'
     },
     {
-      os: 'mac', name: 'Ice', tag: 'Tidy your menu bar', icon: '🧊', color: '#4fd8ff',
+      os: 'mac', name: 'Ice', tag: 'Tidy your menu bar', icon: '🧊', color: '#7a8699',
       preview: 'menubar', tags: ['Free', 'Open source', 'Menu bar'],
       desc: 'Hides the menu bar icons you never look at behind a divider and shows them only when you ask. On a laptop with a notch this is the difference between a usable menu bar and icons vanishing behind the camera.',
       dl: 'https://github.com/jordanbaird/Ice/releases/latest', src: 'https://github.com/jordanbaird/Ice',
       kw: 'menu bar hide icons bartender notch declutter organise'
     },
     {
-      os: 'mac', name: 'Rectangle', tag: 'Window snapping, finally', icon: '⬛', color: '#6c8cff',
+      os: 'mac', name: 'Rectangle', tag: 'Window snapping, finally', icon: '⬛', color: '#4a7fd1',
       preview: 'snap', tags: ['Free', 'Open source', 'Windows'],
       desc: 'The keyboard window management macOS has never shipped. Halves, quarters, thirds and full screen, all on shortcuts your hands learn in a day. The single biggest quality-of-life gain on a Mac.',
       dl: 'https://rectangleapp.com/', src: 'https://github.com/rxhanson/Rectangle',
       kw: 'window manager snap tiling split screen keyboard shortcut layout'
     },
     {
-      os: 'mac', name: 'AlDente', tag: 'Stop charging at 80%', icon: '🔋', color: '#35e0d0',
+      os: 'mac', name: 'AlDente', tag: 'Stop charging at 80%', icon: '🔋', color: '#6b8f4e',
       preview: 'gauge', tags: ['Free tier', 'Battery'],
       desc: 'Caps how far the battery charges while you are plugged in. Lithium cells wear fastest sitting at 100%, so a laptop that lives on a desk keeps meaningfully more capacity after two years with a limit set.',
       dl: 'https://apphousekitchen.com/', src: 'https://github.com/AppHouseKitchen/AlDente-Charge-Limiter',
@@ -1853,28 +1906,28 @@ h1 .grad {
       kw: 'battery charge limit health longevity laptop macbook power'
     },
     {
-      os: 'mac', name: 'Stats', tag: 'See what it is doing', icon: '📊', color: '#b06cff',
+      os: 'mac', name: 'Stats', tag: 'See what it is doing', icon: '📊', color: '#c97b3a',
       preview: 'monitor', tags: ['Free', 'Open source', 'Monitoring'],
       desc: 'Puts CPU, memory, disk, network, GPU and battery readouts right in the menu bar. When the fans spin up you can see the cause in a glance instead of hunting through Activity Monitor.',
       dl: 'https://github.com/exelban/stats/releases/latest', src: 'https://github.com/exelban/stats',
       kw: 'monitor cpu memory ram temperature fan gpu network menu bar istat'
     },
     {
-      os: 'mac', name: 'Pearcleaner', tag: 'Uninstall properly', icon: '🍐', color: '#6fe9dc',
+      os: 'mac', name: 'Pearcleaner', tag: 'Uninstall properly', icon: '🍐', color: '#3f8f8a',
       preview: 'cleaner', tags: ['Free', 'Open source', 'Cleanup'],
       desc: 'Dragging an app to the Trash leaves its caches, preferences and support files behind forever. Pearcleaner finds all of it and removes it together — and will sweep up the leftovers from apps you deleted years ago.',
       dl: 'https://github.com/alienator88/Pearcleaner/releases/latest', src: 'https://github.com/alienator88/Pearcleaner',
       kw: 'uninstall cleanup leftovers appcleaner disk space caches remove'
     },
     {
-      os: 'mac', name: 'Maccy', tag: 'Clipboard history', icon: '📋', color: '#ffb547',
+      os: 'mac', name: 'Maccy', tag: 'Clipboard history', icon: '📋', color: '#e0973f',
       preview: 'clipboard', tags: ['Free', 'Open source', 'Productivity'],
       desc: 'Remembers everything you have copied and brings it back on a keystroke. Tiny, native and instant — and it ends the specific misery of copying something new and losing the thing you needed.',
       dl: 'https://maccy.app/', src: 'https://github.com/p0deje/Maccy',
       kw: 'clipboard history paste copy manager buffer snippets'
     },
     {
-      os: 'mac', name: 'BetterDisplay', tag: 'Any resolution you want', icon: '🖥️', color: '#4fd8ff',
+      os: 'mac', name: 'BetterDisplay', tag: 'Any resolution you want', icon: '🖥️', color: '#7a8699',
       preview: 'display', tags: ['Free tier', 'Display'],
       desc: 'Unlocks HiDPI and custom resolutions macOS refuses to offer, and gives external monitors proper brightness and volume control. Essential if a third-party display looks slightly wrong and you cannot say why.',
       dl: 'https://github.com/waydabber/BetterDisplay/releases/latest', src: 'https://github.com/waydabber/BetterDisplay',
@@ -1882,21 +1935,21 @@ h1 .grad {
       kw: 'display resolution hidpi monitor scaling brightness external screen'
     },
     {
-      os: 'mac', name: 'Shottr', tag: 'Screenshots that do more', icon: '✂️', color: '#ff8fa0',
+      os: 'mac', name: 'Shottr', tag: 'Screenshots that do more', icon: '✂️', color: '#b0503a',
       preview: 'capture', tags: ['Free', 'Screenshots'],
       desc: 'Scrolling capture, pixel measuring, text recognition straight out of an image, and annotation that does not need a second app. Fast enough that it replaces the built-in shortcut entirely.',
       dl: 'https://shottr.cc/', src: 'https://shottr.cc/',
       kw: 'screenshot capture annotate ocr scrolling measure crop image'
     },
     {
-      os: 'mac', name: 'Latest', tag: 'What needs updating', icon: '🔔', color: '#b06cff',
+      os: 'mac', name: 'Latest', tag: 'What needs updating', icon: '🔔', color: '#c97b3a',
       preview: 'updates', tags: ['Free', 'Open source', 'Maintenance'],
       desc: 'Checks every app you have installed — App Store or not — and lists the ones with updates waiting, with the release notes attached. Outdated apps are a real security problem; this makes them visible.',
       dl: 'https://github.com/mangerlahn/latest/releases/latest', src: 'https://github.com/mangerlahn/latest',
       kw: 'update apps outdated version security maintenance release notes'
     },
     {
-      os: 'mac', name: 'Mac Mouse Fix', tag: 'Make any mouse feel right', icon: '🖱️', color: '#35e0d0',
+      os: 'mac', name: 'Mac Mouse Fix', tag: 'Make any mouse feel right', icon: '🖱️', color: '#6b8f4e',
       preview: 'pointer', tags: ['Trial, then $2.99', 'Input'],
       desc: 'Gives a normal third-party mouse the smooth scrolling and gesture support macOS reserves for Apple hardware, and maps the extra buttons to Mission Control, spaces and back-forward.',
       dl: 'https://macmousefix.com/', src: 'https://github.com/noah-nuebling/mac-mouse-fix',
@@ -1906,21 +1959,21 @@ h1 .grad {
 
     /* ------------------------------ Windows ------------------------------ */
     {
-      os: 'win', name: 'PowerToys', tag: 'The missing Windows features', icon: '🧰', color: '#6c8cff',
+      os: 'win', name: 'PowerToys', tag: 'The missing Windows features', icon: '🧰', color: '#4a7fd1',
       preview: 'toolkit', tags: ['Free', 'Open source', 'Microsoft'],
       desc: 'Microsoft\'s own suite of power-user tools: FancyZones window layouts, a Spotlight-style launcher, bulk file renaming, a colour picker, always-on-top and a dozen more. Install this before anything else.',
       dl: 'https://github.com/microsoft/PowerToys/releases/latest', src: 'https://github.com/microsoft/PowerToys',
       kw: 'utilities fancyzones launcher rename window layout microsoft suite'
     },
     {
-      os: 'win', name: 'Everything', tag: 'Search that is actually instant', icon: '🔎', color: '#35e0d0',
+      os: 'win', name: 'Everything', tag: 'Search that is actually instant', icon: '🔎', color: '#6b8f4e',
       preview: 'search', tags: ['Free', 'Search'],
       desc: 'Indexes every filename on your drives in seconds and finds any of them as fast as you can type. Windows Search is slow and misses things; this is the fix, and it is barely a megabyte.',
       dl: 'https://www.voidtools.com/downloads/', src: 'https://www.voidtools.com/',
       kw: 'search find files instant index voidtools filename fast locate'
     },
     {
-      os: 'win', name: 'WinUtil', tag: 'Debloat in one command', icon: '🧹', color: '#ffb547',
+      os: 'win', name: 'WinUtil', tag: 'Debloat in one command', icon: '🧹', color: '#e0973f',
       preview: 'terminal', tags: ['Free', 'Open source', 'Debloat'],
       desc: 'Chris Titus Tech\'s tool for stripping preinstalled junk, turning off telemetry, tuning services and bulk-installing the apps you actually want. It shows you every toggle before it changes anything.',
       dl: 'https://github.com/ChrisTitusTech/winutil', src: 'https://github.com/ChrisTitusTech/winutil', script: true,
@@ -1928,7 +1981,7 @@ h1 .grad {
       kw: 'debloat telemetry services tweak optimise remove bloatware powershell'
     },
     {
-      os: 'win', name: 'O&O ShutUp10++', tag: 'Turn off the telemetry', icon: '🔒', color: '#6fe9dc',
+      os: 'win', name: 'O&O ShutUp10++', tag: 'Turn off the telemetry', icon: '🔒', color: '#3f8f8a',
       preview: 'toggles', tags: ['Free', 'Privacy'],
       desc: 'Every Windows privacy and telemetry setting collected onto one page of switches, with a recommended preset and a plain-English explanation of what each one does. Portable — nothing to install.',
       dl: 'https://www.oo-software.com/en/shutup10', src: 'https://www.oo-software.com/en/shutup10',
@@ -1936,21 +1989,21 @@ h1 .grad {
       kw: 'privacy telemetry tracking disable settings cortana advertising data'
     },
     {
-      os: 'win', name: 'UniGetUI', tag: 'Update everything at once', icon: '📦', color: '#b06cff',
+      os: 'win', name: 'UniGetUI', tag: 'Update everything at once', icon: '📦', color: '#c97b3a',
       preview: 'packages', tags: ['Free', 'Open source', 'Package manager'],
       desc: 'A proper interface over winget, Scoop, Chocolatey and npm. Install, update and remove software from one list instead of hunting down a dozen installers — and update all of it with one button.',
       dl: 'https://github.com/marticliment/UniGetUI/releases/latest', src: 'https://github.com/marticliment/UniGetUI',
       kw: 'winget scoop chocolatey package manager install update wingetui apps'
     },
     {
-      os: 'win', name: 'ShareX', tag: 'Capture and share anything', icon: '📸', color: '#4fd8ff',
+      os: 'win', name: 'ShareX', tag: 'Capture and share anything', icon: '📸', color: '#7a8699',
       preview: 'capture', tags: ['Free', 'Open source', 'Screenshots'],
       desc: 'Screenshots, scrolling capture, screen recording and GIFs, with annotation and an upload-anywhere pipeline built in. Deeply configurable, and the most capable capture tool on any platform.',
       dl: 'https://getsharex.com/', src: 'https://github.com/ShareX/ShareX',
       kw: 'screenshot capture record gif annotate upload screen video'
     },
     {
-      os: 'win', name: 'ExplorerPatcher', tag: 'Put the taskbar back', icon: '🪟', color: '#6c8cff',
+      os: 'win', name: 'ExplorerPatcher', tag: 'Put the taskbar back', icon: '🪟', color: '#4a7fd1',
       preview: 'taskbar', tags: ['Free', 'Open source', 'Shell'],
       desc: 'Restores the Windows 10 taskbar and Explorer behaviour on Windows 11 — never combine buttons, move the bar, get the old right-click menu back. For anyone who found the redesign a downgrade.',
       dl: 'https://github.com/valinet/ExplorerPatcher/releases/latest', src: 'https://github.com/valinet/ExplorerPatcher',
@@ -1958,7 +2011,7 @@ h1 .grad {
       kw: 'taskbar windows 11 10 classic start menu explorer shell restore'
     },
     {
-      os: 'win', name: 'Files', tag: 'Explorer, done properly', icon: '📁', color: '#35e0d0',
+      os: 'win', name: 'Files', tag: 'Explorer, done properly', icon: '📁', color: '#6b8f4e',
       preview: 'explorer', tags: ['Free', 'Open source', 'File manager'],
       desc: 'A modern file manager with real tabs, dual panes, columns, tags and archive support built in. Everything File Explorer should have grown into, and it looks like it belongs on Windows 11.',
       dl: 'https://files.community/', src: 'https://github.com/files-community/Files',
@@ -1966,14 +2019,14 @@ h1 .grad {
       kw: 'file manager explorer tabs dual pane columns folders browse'
     },
     {
-      os: 'win', name: 'HWiNFO', tag: 'Every sensor on the board', icon: '🌡️', color: '#ff8fa0',
+      os: 'win', name: 'HWiNFO', tag: 'Every sensor on the board', icon: '🌡️', color: '#b0503a',
       preview: 'sensors', tags: ['Free', 'Monitoring'],
       desc: 'The most thorough hardware monitor there is — temperatures, clocks, voltages, fan speeds and power draw for every component, logged over time. The tool to reach for when something is throttling and you need to know what.',
       dl: 'https://www.hwinfo.com/download/', src: 'https://www.hwinfo.com/',
       kw: 'temperature sensors hardware monitor cpu gpu fan voltage throttle'
     },
     {
-      os: 'win', name: 'Process Lasso', tag: 'Keep it responsive under load', icon: '⚙️', color: '#b06cff',
+      os: 'win', name: 'Process Lasso', tag: 'Keep it responsive under load', icon: '⚙️', color: '#c97b3a',
       preview: 'cpu', tags: ['Free tier', 'Performance'],
       desc: 'Watches for a process hogging the CPU and quietly drops its priority before the whole machine stutters. The difference between a background job being invisible and it making your desktop unusable.',
       dl: 'https://bitsum.com/', src: 'https://bitsum.com/',
@@ -1981,14 +2034,14 @@ h1 .grad {
       kw: 'cpu priority affinity performance responsive process lag stutter'
     },
     {
-      os: 'win', name: 'Revo Uninstaller', tag: 'Remove it completely', icon: '🗑️', color: '#ffb547',
+      os: 'win', name: 'Revo Uninstaller', tag: 'Remove it completely', icon: '🗑️', color: '#e0973f',
       preview: 'cleaner', tags: ['Free tier', 'Cleanup'],
       desc: 'Runs an app\'s own uninstaller and then scans for everything it left behind in the registry and on disk. The tool for programs that refuse to uninstall cleanly, or refuse to uninstall at all.',
       dl: 'https://www.revouninstaller.com/products/revo-uninstaller-free/', src: 'https://www.revouninstaller.com/',
       kw: 'uninstall remove leftovers registry cleanup programs stubborn'
     },
     {
-      os: 'win', name: 'BleachBit', tag: 'Get the disk space back', icon: '🫧', color: '#4fd8ff',
+      os: 'win', name: 'BleachBit', tag: 'Get the disk space back', icon: '🫧', color: '#7a8699',
       preview: 'cleaner', tags: ['Free', 'Open source', 'Cleanup'],
       desc: 'Clears caches, logs, temporary files and browser leftovers across hundreds of applications, and shows you exactly what it will delete before it does. Open source, so there is no upsell and no bundled toolbar.',
       dl: 'https://www.bleachbit.org/download', src: 'https://www.bleachbit.org/',
@@ -1996,7 +2049,7 @@ h1 .grad {
       kw: 'cleanup disk space temporary cache ccleaner alternative free space'
     },
     {
-      os: 'win', name: '7-Zip', tag: 'Compression that just works', icon: '🗜️', color: '#6fe9dc',
+      os: 'win', name: '7-Zip', tag: 'Compression that just works', icon: '🗜️', color: '#3f8f8a',
       preview: 'archive', tags: ['Free', 'Open source', 'Archives'],
       desc: 'Opens every archive format that exists and creates smaller ones than anything built in. No nag screens, no trial, no licence. One of those installs that has been the right answer for twenty years.',
       dl: 'https://www.7-zip.org/download.html', src: 'https://www.7-zip.org/',
@@ -2006,275 +2059,275 @@ h1 .grad {
     /* ===================== second wave ===================== */
 
     /* ------------------------ cross-platform ------------------------ */
-    { os: 'both', name: 'Flameshot', tag: 'Annotate as you capture', icon: '🔥', color: '#ff8fa0', preview: 'capture',
+    { os: 'both', name: 'Flameshot', tag: 'Annotate as you capture', icon: '🔥', color: '#b0503a', preview: 'capture',
       tags: ['Free', 'Open source', 'Screenshots'], cat: 'capture',
       desc: 'Screenshot tool with the annotation built into the capture step — draw, blur and arrow before the image ever hits disk.',
       dl: 'https://github.com/flameshot-org/flameshot/releases/latest', src: 'https://flameshot.org/',
       kw: 'screenshot capture annotate blur arrow draw' },
-    { os: 'both', name: 'OBS Studio', tag: 'Record and stream anything', icon: '🎥', color: '#6c8cff', preview: 'record',
+    { os: 'both', name: 'OBS Studio', tag: 'Record and stream anything', icon: '🎥', color: '#4a7fd1', preview: 'record',
       tags: ['Free', 'Open source', 'Recording'], cat: 'capture',
       desc: 'The standard for screen recording and streaming. Scene composition, multiple sources, and encoding that uses your GPU instead of melting your CPU.',
       dl: 'https://obsproject.com/download', src: 'https://github.com/obsproject/obs-studio',
       kw: 'record screen stream video capture webcam broadcast' },
-    { os: 'both', name: 'HandBrake', tag: 'Shrink video massively', icon: '🎞️', color: '#ffb547', preview: 'encode',
+    { os: 'both', name: 'HandBrake', tag: 'Shrink video massively', icon: '🎞️', color: '#e0973f', preview: 'encode',
       tags: ['Free', 'Open source', 'Media'], cat: 'capture',
       desc: 'Re-encodes video to modern codecs, routinely cutting a file to a quarter of its size with no visible loss. The fastest way to reclaim a drive full of video.',
       dl: 'https://handbrake.fr/downloads.php', src: 'https://github.com/HandBrake/HandBrake',
       kw: 'video convert transcode compress encode h265 shrink mp4' },
-    { os: 'both', name: 'VLC', tag: 'Plays literally everything', icon: '🔶', color: '#ffb547', preview: 'player',
+    { os: 'both', name: 'VLC', tag: 'Plays literally everything', icon: '🔶', color: '#e0973f', preview: 'player',
       tags: ['Free', 'Open source', 'Media'], cat: 'capture',
       desc: 'Opens any video or audio file ever made without hunting for a codec pack. Twenty years on, still the correct answer.',
       dl: 'https://www.videolan.org/vlc/', src: 'https://www.videolan.org/',
       kw: 'video player media codec mkv avi play movie audio' },
-    { os: 'both', name: 'mpv', tag: 'A player with no chrome', icon: '▶️', color: '#b06cff', preview: 'player',
+    { os: 'both', name: 'mpv', tag: 'A player with no chrome', icon: '▶️', color: '#c97b3a', preview: 'player',
       tags: ['Free', 'Open source', 'Media'], cat: 'capture',
       desc: 'Minimal, keyboard-driven, GPU-accelerated video playback. No interface to speak of, and better picture quality than almost anything else.',
       dl: 'https://mpv.io/installation/', src: 'https://github.com/mpv-player/mpv',
       kw: 'video player minimal gpu keyboard scriptable' },
-    { os: 'both', name: 'Czkawka', tag: 'Find every duplicate', icon: '👯', color: '#35e0d0', preview: 'dupes',
+    { os: 'both', name: 'Czkawka', tag: 'Find every duplicate', icon: '👯', color: '#6b8f4e', preview: 'dupes',
       tags: ['Free', 'Open source', 'Cleanup'], cat: 'clean',
       desc: 'Hunts duplicate files, similar images, broken symlinks and empty folders. Written in Rust, so it chews through a full drive fast.',
       dl: 'https://github.com/qarmin/czkawka/releases/latest', src: 'https://github.com/qarmin/czkawka',
       kw: 'duplicate files similar images cleanup space finder rust' },
-    { os: 'both', name: 'dupeGuru', tag: 'Fuzzy duplicate matching', icon: '🔁', color: '#6fe9dc', preview: 'dupes',
+    { os: 'both', name: 'dupeGuru', tag: 'Fuzzy duplicate matching', icon: '🔁', color: '#3f8f8a', preview: 'dupes',
       tags: ['Free', 'Open source', 'Cleanup'], cat: 'clean',
       desc: 'Finds duplicates that are not byte-identical — a resized photo, a re-tagged MP3, a renamed document — with a dedicated music and picture mode.',
       dl: 'https://github.com/arsenetar/dupeguru/releases/latest', src: 'https://github.com/arsenetar/dupeguru',
       kw: 'duplicate fuzzy photo music similar cleanup dedupe' },
-    { os: 'both', name: 'KeePassXC', tag: 'Passwords, entirely offline', icon: '🔐', color: '#6c8cff', preview: 'vault',
+    { os: 'both', name: 'KeePassXC', tag: 'Passwords, entirely offline', icon: '🔐', color: '#4a7fd1', preview: 'vault',
       tags: ['Free', 'Open source', 'Security'], cat: 'secure',
       desc: 'A password manager where the database is a file you own. No account, no server, no subscription, no company that can be breached.',
       dl: 'https://keepassxc.org/download/', src: 'https://github.com/keepassxreboot/keepassxc',
       kw: 'password manager vault offline encryption keepass security' },
-    { os: 'both', name: 'Bitwarden', tag: 'Synced password manager', icon: '🛡️', color: '#4fd8ff', preview: 'vault',
+    { os: 'both', name: 'Bitwarden', tag: 'Synced password manager', icon: '🛡️', color: '#7a8699', preview: 'vault',
       tags: ['Free tier', 'Open source', 'Security'], cat: 'secure',
       desc: 'Open-source password manager that syncs across every device on a genuinely usable free tier. The easy recommendation for anyone still reusing passwords.',
       dl: 'https://bitwarden.com/download/', src: 'https://github.com/bitwarden/clients',
       kw: 'password manager sync vault security 2fa browser extension' },
-    { os: 'both', name: 'VeraCrypt', tag: 'Encrypt a whole drive', icon: '🗝️', color: '#b06cff', preview: 'vault',
+    { os: 'both', name: 'VeraCrypt', tag: 'Encrypt a whole drive', icon: '🗝️', color: '#c97b3a', preview: 'vault',
       tags: ['Free', 'Open source', 'Security'], cat: 'secure',
       desc: 'Creates encrypted containers or encrypts an entire disk, audited and independent of any OS vendor. The successor to TrueCrypt.',
       dl: 'https://www.veracrypt.fr/en/Downloads.html', src: 'https://www.veracrypt.fr/en/Home.html',
       kw: 'encryption disk container truecrypt security volume privacy' },
-    { os: 'both', name: 'Duplicati', tag: 'Encrypted cloud backup', icon: '☁️', color: '#35e0d0', preview: 'backup',
+    { os: 'both', name: 'Duplicati', tag: 'Encrypted cloud backup', icon: '☁️', color: '#6b8f4e', preview: 'backup',
       tags: ['Free', 'Open source', 'Backup'], cat: 'transfer',
       desc: 'Incremental, encrypted, deduplicated backups to whatever storage you already pay for — S3, Backblaze, Google Drive, a NAS.',
       dl: 'https://www.duplicati.com/', src: 'https://github.com/duplicati/duplicati',
       kw: 'backup encrypted incremental cloud s3 backblaze restore' },
-    { os: 'both', name: 'restic', tag: 'Backups that verify', icon: '📀', color: '#6fe9dc', preview: 'backup',
+    { os: 'both', name: 'restic', tag: 'Backups that verify', icon: '📀', color: '#3f8f8a', preview: 'backup',
       tags: ['Free', 'Open source', 'Backup'], cat: 'transfer',
       desc: 'A command-line backup tool built around deduplication and cryptographic verification, so you can prove a restore will actually work.',
       dl: 'https://restic.net/', src: 'https://github.com/restic/restic',
       kw: 'backup cli deduplication encrypted snapshot verify restore' },
-    { os: 'both', name: 'FreeFileSync', tag: 'Folder comparison and sync', icon: '⇄', color: '#ffb547', preview: 'backup',
+    { os: 'both', name: 'FreeFileSync', tag: 'Folder comparison and sync', icon: '⇄', color: '#e0973f', preview: 'backup',
       tags: ['Free', 'Open source', 'Sync'], cat: 'transfer',
       desc: 'Compares two folders, shows you exactly what differs, and syncs only that. The tool for mirroring to an external drive without a cloud in the middle.',
       dl: 'https://freefilesync.org/download.php', src: 'https://freefilesync.org/',
       kw: 'sync folder mirror compare backup external drive rsync' },
-    { os: 'both', name: 'Tailscale', tag: 'Your devices, one network', icon: '🕸️', color: '#6c8cff', preview: 'remote',
+    { os: 'both', name: 'Tailscale', tag: 'Your devices, one network', icon: '🕸️', color: '#4a7fd1', preview: 'remote',
       tags: ['Free tier', 'Network'], cat: 'transfer',
       desc: 'Puts every machine you own on one private encrypted network, wherever they are. Reach your home NAS from a café with no port forwarding.',
       dl: 'https://tailscale.com/download', src: 'https://tailscale.com/',
       kw: 'vpn mesh wireguard remote access network private nas' },
-    { os: 'both', name: 'RustDesk', tag: 'Remote desktop, self-hosted', icon: '🖥️', color: '#4fd8ff', preview: 'remote',
+    { os: 'both', name: 'RustDesk', tag: 'Remote desktop, self-hosted', icon: '🖥️', color: '#7a8699', preview: 'remote',
       tags: ['Free', 'Open source', 'Remote'], cat: 'transfer',
       desc: 'Control another machine over the internet, end-to-end encrypted, with the option to run your own relay server. A free TeamViewer replacement.',
       dl: 'https://rustdesk.com/', src: 'https://github.com/rustdesk/rustdesk',
       kw: 'remote desktop teamviewer anydesk control screen share' },
-    { os: 'both', name: 'Angry IP Scanner', tag: 'See what is on your network', icon: '📶', color: '#35e0d0', preview: 'netscan',
+    { os: 'both', name: 'Angry IP Scanner', tag: 'See what is on your network', icon: '📶', color: '#6b8f4e', preview: 'netscan',
       tags: ['Free', 'Open source', 'Network'], cat: 'transfer',
       desc: 'Sweeps your network and lists every device on it with hostname, MAC and vendor. The quickest way to spot something you do not recognise.',
       dl: 'https://angryip.org/', src: 'https://github.com/angryip/ipscan',
       kw: 'network scanner ip devices lan discover ports mac address' },
-    { os: 'both', name: 'Wireshark', tag: 'Every packet, in detail', icon: '🦈', color: '#6c8cff', preview: 'netscan',
+    { os: 'both', name: 'Wireshark', tag: 'Every packet, in detail', icon: '🦈', color: '#4a7fd1', preview: 'netscan',
       tags: ['Free', 'Open source', 'Network'], cat: 'transfer',
       desc: 'The reference network analyser. Overkill for most problems and irreplaceable for the rest — when you need to know exactly what your machine is sending.',
       dl: 'https://www.wireshark.org/download.html', src: 'https://www.wireshark.org/',
       kw: 'packet capture network analyse traffic protocol sniff debug' },
-    { os: 'both', name: 'CopyQ', tag: 'Clipboard with scripting', icon: '📎', color: '#b06cff', preview: 'clipboard',
+    { os: 'both', name: 'CopyQ', tag: 'Clipboard with scripting', icon: '📎', color: '#c97b3a', preview: 'clipboard',
       tags: ['Free', 'Open source', 'Clipboard'], cat: 'input',
       desc: 'Clipboard history with tabs, search, editing and scriptable actions. The power-user option when a simple history is not enough.',
       dl: 'https://github.com/hluk/CopyQ/releases/latest', src: 'https://hluk.github.io/CopyQ/',
       kw: 'clipboard history manager paste scripting tabs search' },
-    { os: 'both', name: 'PeaZip', tag: 'Archives with a GUI', icon: '🫛', color: '#6fe9dc', preview: 'archive',
+    { os: 'both', name: 'PeaZip', tag: 'Archives with a GUI', icon: '🫛', color: '#3f8f8a', preview: 'archive',
       tags: ['Free', 'Open source', 'Archives'], cat: 'files',
       desc: 'Handles 200+ archive formats with strong encryption and a proper interface, on both platforms. A friendlier front end than raw 7-Zip.',
       dl: 'https://peazip.github.io/', src: 'https://github.com/peazip/PeaZip',
       kw: 'archive zip rar 7z extract compress encryption formats' },
-    { os: 'both', name: 'balenaEtcher', tag: 'Flash an image safely', icon: '⚡', color: '#ff8fa0', preview: 'usb',
+    { os: 'both', name: 'balenaEtcher', tag: 'Flash an image safely', icon: '⚡', color: '#b0503a', preview: 'usb',
       tags: ['Free', 'Open source', 'Boot'], cat: 'files',
       desc: 'Writes an OS image to a USB stick or SD card and validates it afterwards. Refuses to target your system drive, which is the feature that matters.',
       dl: 'https://etcher.balena.io/', src: 'https://github.com/balena-io/etcher',
       kw: 'usb flash image iso sd card burn bootable write' },
-    { os: 'both', name: 'Ghostty', tag: 'A genuinely fast terminal', icon: '👻', color: '#b06cff', preview: 'terminal',
+    { os: 'both', name: 'Ghostty', tag: 'A genuinely fast terminal', icon: '👻', color: '#c97b3a', preview: 'terminal',
       tags: ['Free', 'Open source', 'Terminal'], cat: 'tweak',
       desc: 'GPU-accelerated terminal that is native on both platforms and faster than what ships with either. Zero config needed to feel better immediately.',
       dl: 'https://ghostty.org/download', src: 'https://github.com/ghostty-org/ghostty',
       kw: 'terminal gpu fast shell console emulator native' },
-    { os: 'both', name: 'Alacritty', tag: 'Minimal GPU terminal', icon: '🖲️', color: '#6c8cff', preview: 'terminal',
+    { os: 'both', name: 'Alacritty', tag: 'Minimal GPU terminal', icon: '🖲️', color: '#4a7fd1', preview: 'terminal',
       tags: ['Free', 'Open source', 'Terminal'], cat: 'tweak',
       desc: 'A terminal that does one thing — draw text as fast as physically possible — and configures entirely from a single file.',
       dl: 'https://github.com/alacritty/alacritty/releases/latest', src: 'https://alacritty.org/',
       kw: 'terminal gpu minimal fast config shell rust' },
-    { os: 'both', name: 'f.lux', tag: 'Screen warmth after dark', icon: '🌇', color: '#ffb547', preview: 'brightness',
+    { os: 'both', name: 'f.lux', tag: 'Screen warmth after dark', icon: '🌇', color: '#e0973f', preview: 'brightness',
       tags: ['Free', 'Display'], cat: 'display',
       desc: 'Shifts your display warm as the sun sets. The original, and still more configurable than the versions Apple and Microsoft later built in.',
       dl: 'https://justgetflux.com/', src: 'https://justgetflux.com/',
       kw: 'blue light night colour temperature eye strain sleep display' },
 
     /* ------------------------------ macOS ------------------------------ */
-    { os: 'mac', name: 'Mole', tag: 'Cleans, analyses, monitors', icon: '🐹', color: '#35e0d0', preview: 'treemap',
+    { os: 'mac', name: 'Mole', tag: 'Cleans, analyses, monitors', icon: '🐹', color: '#6b8f4e', preview: 'treemap',
       tags: ['Free', 'Open source', 'Cleanup'], cat: 'clean',
       desc: 'One tool that clears ten categories of cache, uninstalls apps with their leftovers, draws your disk as a treemap and monitors CPU, GPU, battery and fans. 60k stars and deservedly so.',
       dl: 'https://github.com/tw93/Mole/releases/latest', src: 'https://github.com/tw93/Mole',
       note: 'The CLI is free and GPL-3.0 — <code>brew install mole</code>. There is also an optional native Mac app at mole.fit for $19 one-off; you do not need it to use the tool.',
       kw: 'clean cache uninstall disk analyse monitor treemap maintenance mole' },
-    { os: 'mac', name: 'Raycast', tag: 'Spotlight, replaced', icon: '🔍', color: '#ff8fa0', preview: 'launcher',
+    { os: 'mac', name: 'Raycast', tag: 'Spotlight, replaced', icon: '🔍', color: '#b0503a', preview: 'launcher',
       tags: ['Free tier', 'Launcher'], cat: 'desktop',
       desc: 'A launcher that also does clipboard history, window management, snippets, calculations and a whole extension store — from one keystroke.',
       dl: 'https://www.raycast.com/', src: 'https://www.raycast.com/',
       kw: 'launcher spotlight alfred search productivity extensions clipboard' },
-    { os: 'mac', name: 'AltTab', tag: 'Windows-style switching', icon: '🔲', color: '#6c8cff', preview: 'switcher',
+    { os: 'mac', name: 'AltTab', tag: 'Windows-style switching', icon: '🔲', color: '#4a7fd1', preview: 'switcher',
       tags: ['Free', 'Open source', 'Windows'], cat: 'desktop',
       desc: 'Brings a real window switcher to macOS with live previews of every window, not just one icon per app. Fixes the single most annoying thing about ⌘-Tab.',
       dl: 'https://alt-tab-macos.netlify.app/', src: 'https://github.com/lwouis/alt-tab-macos',
       kw: 'alt tab window switcher preview cmd tab thumbnails' },
-    { os: 'mac', name: 'Loop', tag: 'Snap windows by gesture', icon: '🔵', color: '#b06cff', preview: 'snap',
+    { os: 'mac', name: 'Loop', tag: 'Snap windows by gesture', icon: '🔵', color: '#c97b3a', preview: 'snap',
       tags: ['Free', 'Open source', 'Windows'], cat: 'desktop',
       desc: 'Hold a key, flick the mouse toward where you want the window, let go. A more fluid take on window snapping than keyboard shortcuts alone.',
       dl: 'https://github.com/MrKai77/Loop/releases/latest', src: 'https://github.com/MrKai77/Loop',
       kw: 'window snap gesture radial tiling halves quarters' },
-    { os: 'mac', name: 'Amethyst', tag: 'Automatic tiling', icon: '💠', color: '#4fd8ff', preview: 'tiling',
+    { os: 'mac', name: 'Amethyst', tag: 'Automatic tiling', icon: '💠', color: '#7a8699', preview: 'tiling',
       tags: ['Free', 'Open source', 'Windows'], cat: 'desktop',
       desc: 'Tiles every window automatically so nothing ever overlaps and you never drag a title bar again. The gentlest way into tiling on a Mac.',
       dl: 'https://ianyh.com/amethyst/', src: 'https://github.com/ianyh/Amethyst',
       kw: 'tiling window manager automatic layout xmonad spaces' },
-    { os: 'mac', name: 'AeroSpace', tag: 'i3-style tiling', icon: '🌀', color: '#6fe9dc', preview: 'tiling',
+    { os: 'mac', name: 'AeroSpace', tag: 'i3-style tiling', icon: '🌀', color: '#3f8f8a', preview: 'tiling',
       tags: ['Free', 'Open source', 'Windows'], cat: 'desktop',
       desc: 'A tiling manager with its own virtual workspaces that sidestep macOS Spaces entirely — which is why switching workspaces is instant instead of an animation.',
       dl: 'https://github.com/nikitabobko/AeroSpace/releases', src: 'https://github.com/nikitabobko/AeroSpace',
       note: 'Ships as beta prereleases only, so this links to the full releases list rather than a "latest" tag.',
       kw: 'tiling i3 workspaces window manager keyboard spaces' },
-    { os: 'mac', name: 'yabai', tag: 'Tiling for power users', icon: '🧩', color: '#8ea6ff', preview: 'tiling',
+    { os: 'mac', name: 'yabai', tag: 'Tiling for power users', icon: '🧩', color: '#6f93d9', preview: 'tiling',
       tags: ['Free', 'Open source', 'Windows'], cat: 'desktop',
       desc: 'The most capable tiling window manager on macOS, scriptable down to individual window rules. Steep setup, unmatched control.',
       dl: 'https://github.com/koekeishiya/yabai/releases/latest', src: 'https://github.com/koekeishiya/yabai',
       note: 'Some features need System Integrity Protection partially disabled. Read the wiki before you do that — it is a real security trade-off.',
       kw: 'tiling window manager scriptable bsp spaces power user' },
-    { os: 'mac', name: 'Hidden Bar', tag: 'Menu bar, minimal', icon: '➖', color: '#35e0d0', preview: 'menubar',
+    { os: 'mac', name: 'Hidden Bar', tag: 'Menu bar, minimal', icon: '➖', color: '#6b8f4e', preview: 'menubar',
       tags: ['Free', 'Open source', 'Menu bar'], cat: 'customization',
       desc: 'A lighter alternative to Ice — one divider, drag icons behind it, done. Tiny and native.',
       dl: 'https://github.com/dwarvesf/hidden/releases/latest', src: 'https://github.com/dwarvesf/hidden',
       kw: 'menu bar hide icons declutter bartender minimal' },
-    { os: 'mac', name: 'Itsycal', tag: 'A calendar in the clock', icon: '📅', color: '#6c8cff', preview: 'calendar',
+    { os: 'mac', name: 'Itsycal', tag: 'A calendar in the clock', icon: '📅', color: '#4a7fd1', preview: 'calendar',
       tags: ['Free', 'Open source', 'Menu bar'], cat: 'desktop',
       desc: 'Turns the menu bar clock into a real calendar with your events in it. The feature macOS has somehow never shipped.',
       dl: 'https://itsycal.com/', src: 'https://github.com/sfsam/Itsycal',
       kw: 'calendar menu bar clock events date month agenda' },
-    { os: 'mac', name: 'KeepingYouAwake', tag: 'Stop the screen sleeping', icon: '☕', color: '#ffb547', preview: 'coffee',
+    { os: 'mac', name: 'KeepingYouAwake', tag: 'Stop the screen sleeping', icon: '☕', color: '#e0973f', preview: 'coffee',
       tags: ['Free', 'Open source', 'Power'], cat: 'display',
       desc: 'One menu bar click keeps your Mac awake for a long download, a presentation or a build. Timed or indefinite.',
       dl: 'https://keepingyouawake.app/', src: 'https://github.com/newmarcel/KeepingYouAwake',
       kw: 'caffeine sleep prevent awake display screensaver amphetamine' },
-    { os: 'mac', name: 'Hammerspoon', tag: 'Automate the whole OS', icon: '🔨', color: '#b06cff', preview: 'keymap',
+    { os: 'mac', name: 'Hammerspoon', tag: 'Automate the whole OS', icon: '🔨', color: '#c97b3a', preview: 'keymap',
       tags: ['Free', 'Open source', 'Automation'], cat: 'input',
       desc: 'Scripts macOS in Lua — window layouts, hotkeys, Wi-Fi triggers, USB events. If you can describe the automation, you can build it.',
       dl: 'https://www.hammerspoon.org/', src: 'https://github.com/Hammerspoon/hammerspoon',
       kw: 'automation lua scripting hotkeys window layout macros' },
-    { os: 'mac', name: 'Karabiner-Elements', tag: 'Remap any key', icon: '⌨️', color: '#4fd8ff', preview: 'keymap',
+    { os: 'mac', name: 'Karabiner-Elements', tag: 'Remap any key', icon: '⌨️', color: '#7a8699', preview: 'keymap',
       tags: ['Free', 'Open source', 'Input'], cat: 'input',
       desc: 'Rewrites the keyboard at the driver level. Caps lock becomes escape on tap and control on hold — the single best remap on any Mac.',
       dl: 'https://karabiner-elements.pqrs.org/', src: 'https://github.com/pqrs-org/Karabiner-Elements',
       kw: 'keyboard remap keys caps lock modifier hyper layers input' },
-    { os: 'mac', name: 'MonitorControl', tag: 'Real external brightness', icon: '🔆', color: '#ffb547', preview: 'brightness',
+    { os: 'mac', name: 'MonitorControl', tag: 'Real external brightness', icon: '🔆', color: '#e0973f', preview: 'brightness',
       tags: ['Free', 'Open source', 'Display'], cat: 'display',
       desc: 'Controls an external monitor\'s actual backlight from the Mac keyboard brightness keys, instead of faking it with a grey overlay.',
       dl: 'https://github.com/MonitorControl/MonitorControl/releases/latest', src: 'https://github.com/MonitorControl/MonitorControl',
       kw: 'brightness external monitor ddc volume display keys' },
-    { os: 'mac', name: 'Lunar', tag: 'Adaptive display control', icon: '🌙', color: '#b06cff', preview: 'brightness',
+    { os: 'mac', name: 'Lunar', tag: 'Adaptive display control', icon: '🌙', color: '#c97b3a', preview: 'brightness',
       tags: ['Free tier', 'Display'], cat: 'display',
       desc: 'DDC brightness control that also adapts to ambient light and syncs external monitors to the built-in display automatically.',
       dl: 'https://lunar.fyi/', src: 'https://github.com/alin23/Lunar',
       kw: 'brightness ddc adaptive ambient monitor sync display xdr' },
-    { os: 'mac', name: 'Background Music', tag: 'Per-app volume', icon: '🔊', color: '#35e0d0', preview: 'audio',
+    { os: 'mac', name: 'Background Music', tag: 'Per-app volume', icon: '🔊', color: '#6b8f4e', preview: 'audio',
       tags: ['Free', 'Open source', 'Audio'], cat: 'display',
       desc: 'Gives every app its own volume slider and auto-pauses your music when something else starts playing. A virtual audio device macOS should include.',
       dl: 'https://github.com/kyleneideck/BackgroundMusic/releases/latest', src: 'https://github.com/kyleneideck/BackgroundMusic',
       kw: 'audio volume per app mixer record sound device' },
-    { os: 'mac', name: 'eqMac', tag: 'System-wide equaliser', icon: '🎚️', color: '#6fe9dc', preview: 'audio',
+    { os: 'mac', name: 'eqMac', tag: 'System-wide equaliser', icon: '🎚️', color: '#3f8f8a', preview: 'audio',
       tags: ['Free tier', 'Audio'], cat: 'display',
       desc: 'A proper EQ across all system audio, which macOS otherwise has no way to do. Rescues bad laptop speakers and cheap headphones alike.',
       dl: 'https://eqmac.app/', src: 'https://github.com/bitgapp/eqMac',
       kw: 'equaliser eq audio sound bass system volume boost' },
-    { os: 'mac', name: 'IINA', tag: 'A player built for macOS', icon: '🎬', color: '#ff8fa0', preview: 'player',
+    { os: 'mac', name: 'IINA', tag: 'A player built for macOS', icon: '🎬', color: '#b0503a', preview: 'player',
       tags: ['Free', 'Open source', 'Media'], cat: 'capture',
       desc: 'mpv\'s playback engine behind a properly native Mac interface — dark mode, Force Touch, Picture-in-Picture, and it opens everything.',
       dl: 'https://iina.io/', src: 'https://github.com/iina/iina',
       kw: 'video player mac native mpv mkv subtitles pip media' },
-    { os: 'mac', name: 'Keka', tag: 'Archives, natively', icon: '📦', color: '#6c8cff', preview: 'archive',
+    { os: 'mac', name: 'Keka', tag: 'Archives, natively', icon: '📦', color: '#4a7fd1', preview: 'archive',
       tags: ['Free', 'Open source', 'Archives'], cat: 'files',
       desc: 'Compresses and extracts nearly every format with a clean Mac interface and strong encryption. Free direct from the developer.',
       dl: 'https://www.keka.io/', src: 'https://github.com/aonez/Keka',
       kw: 'archive zip rar 7z extract compress encryption mac' },
-    { os: 'mac', name: 'The Unarchiver', tag: 'Opens the weird ones', icon: '🗂️', color: '#ffb547', preview: 'archive',
+    { os: 'mac', name: 'The Unarchiver', tag: 'Opens the weird ones', icon: '🗂️', color: '#e0973f', preview: 'archive',
       tags: ['Free', 'Archives'], cat: 'files',
       desc: 'Extracts formats macOS refuses to touch, including old and foreign-language archives with broken filename encodings.',
       dl: 'https://theunarchiver.com/', src: 'https://theunarchiver.com/',
       kw: 'rar extract archive unzip stuffit formats mac' },
-    { os: 'mac', name: 'AppCleaner', tag: 'Drag-to-uninstall', icon: '🧴', color: '#4fd8ff', preview: 'cleaner',
+    { os: 'mac', name: 'AppCleaner', tag: 'Drag-to-uninstall', icon: '🧴', color: '#7a8699', preview: 'cleaner',
       tags: ['Free', 'Cleanup'], cat: 'clean',
       desc: 'Drop an app on it and it finds every associated file before deleting. The long-standing simple choice if Pearcleaner is more than you need.',
       dl: 'https://freemacsoft.net/appcleaner/', src: 'https://freemacsoft.net/appcleaner/',
       kw: 'uninstall remove app leftovers cleanup drag delete' },
-    { os: 'mac', name: 'OnyX', tag: 'Maintenance and hidden settings', icon: '🛠️', color: '#8ea6ff', preview: 'toggles',
+    { os: 'mac', name: 'OnyX', tag: 'Maintenance and hidden settings', icon: '🛠️', color: '#6f93d9', preview: 'toggles',
       tags: ['Free', 'Maintenance'], cat: 'clean',
       desc: 'Runs macOS maintenance scripts, rebuilds caches and databases, verifies the disk, and exposes dozens of hidden system settings. A version is released for every macOS.',
       dl: 'https://www.titanium-software.fr/en/onyx.html', src: 'https://www.titanium-software.fr/en/onyx.html',
       note: 'Download the build matching your exact macOS version — the page lists one per release.',
       kw: 'maintenance cache rebuild verify disk hidden settings scripts' },
-    { os: 'mac', name: 'coconutBattery', tag: 'The truth about your battery', icon: '🥥', color: '#6fe9dc', preview: 'gauge',
+    { os: 'mac', name: 'coconutBattery', tag: 'The truth about your battery', icon: '🥥', color: '#3f8f8a', preview: 'gauge',
       tags: ['Free tier', 'Battery'], cat: 'display',
       desc: 'Shows real design capacity versus current capacity, cycle count, temperature and age — for the Mac and for a connected iPhone.',
       dl: 'https://www.coconut-flavour.com/coconutbattery/', src: 'https://www.coconut-flavour.com/coconutbattery/',
       kw: 'battery health capacity cycles wear iphone temperature age' },
-    { os: 'mac', name: 'LuLu', tag: 'See what phones home', icon: '🚨', color: '#ff8fa0', preview: 'firewall',
+    { os: 'mac', name: 'LuLu', tag: 'See what phones home', icon: '🚨', color: '#b0503a', preview: 'firewall',
       tags: ['Free', 'Open source', 'Security'], cat: 'secure',
       desc: 'An outbound firewall that asks before any app connects out. From Objective-See, who make the best free Mac security tools there are.',
       dl: 'https://objective-see.org/products/lulu.html', src: 'https://github.com/objective-see/LuLu',
       kw: 'firewall outbound network block privacy little snitch security' },
-    { os: 'mac', name: 'Cork', tag: 'Homebrew with a face', icon: '🍺', color: '#ffb547', preview: 'packages',
+    { os: 'mac', name: 'Cork', tag: 'Homebrew with a face', icon: '🍺', color: '#e0973f', preview: 'packages',
       tags: ['Free', 'Open source', 'Packages'], cat: 'tweak',
       desc: 'A native interface for Homebrew — see what is installed, what is outdated, what is only there as a dependency, and remove things safely.',
       dl: 'https://github.com/buresdv/Cork/releases/latest', src: 'https://github.com/buresdv/Cork',
       kw: 'homebrew gui packages install update manage brew casks' },
-    { os: 'mac', name: 'Sentinel', tag: 'Fix “app is damaged”', icon: '🛂', color: '#b06cff', preview: 'toggles',
+    { os: 'mac', name: 'Sentinel', tag: 'Fix “app is damaged”', icon: '🛂', color: '#c97b3a', preview: 'toggles',
       tags: ['Free', 'Open source', 'Utility'], cat: 'secure',
       desc: 'A small GUI for Gatekeeper — strips the quarantine flag from an app macOS wrongly calls damaged, without you memorising xattr syntax.',
       dl: 'https://github.com/alienator88/Sentinel/releases/latest', src: 'https://github.com/alienator88/Sentinel',
       note: 'Only bypass Gatekeeper for software you actually trust. It exists to stop real malware.',
       kw: 'gatekeeper quarantine damaged unsigned xattr unidentified developer' },
-    { os: 'mac', name: 'Mos', tag: 'Smooth out mouse scrolling', icon: '🖱️', color: '#35e0d0', preview: 'pointer',
+    { os: 'mac', name: 'Mos', tag: 'Smooth out mouse scrolling', icon: '🖱️', color: '#6b8f4e', preview: 'pointer',
       tags: ['Free', 'Open source', 'Input'], cat: 'input',
       desc: 'Smooths and reverses scroll direction for a normal mouse independently of the trackpad — the exact setting macOS refuses to separate.',
       dl: 'https://mos.caldis.me/', src: 'https://github.com/Caldis/Mos',
       kw: 'mouse scroll smooth reverse direction wheel trackpad' },
-    { os: 'mac', name: 'Kap', tag: 'Record a quick GIF', icon: '🎞️', color: '#6c8cff', preview: 'record',
+    { os: 'mac', name: 'Kap', tag: 'Record a quick GIF', icon: '🎞️', color: '#4a7fd1', preview: 'record',
       tags: ['Free', 'Open source', 'Recording'], cat: 'capture',
       desc: 'Select a region, record, export straight to GIF or MP4. Built for the short clip you want to paste into a chat.',
       dl: 'https://getkap.co/', src: 'https://github.com/wulkano/Kap',
       kw: 'screen record gif mp4 capture clip share region' },
-    { os: 'mac', name: 'Gifski', tag: 'Genuinely good GIFs', icon: '🌈', color: '#b06cff', preview: 'encode',
+    { os: 'mac', name: 'Gifski', tag: 'Genuinely good GIFs', icon: '🌈', color: '#c97b3a', preview: 'encode',
       tags: ['Free', 'Open source', 'Media'], cat: 'capture',
       desc: 'Converts video to GIF with far better colour than anything else, by picking an optimal palette per frame.',
       dl: 'https://sindresorhus.com/gifski', src: 'https://github.com/sindresorhus/Gifski',
       kw: 'gif convert video quality palette encode animation' },
-    { os: 'mac', name: 'SketchyBar', tag: 'Build your own menu bar', icon: '📐', color: '#6fe9dc', preview: 'menubar',
+    { os: 'mac', name: 'SketchyBar', tag: 'Build your own menu bar', icon: '📐', color: '#3f8f8a', preview: 'menubar',
       tags: ['Free', 'Open source', 'Menu bar'], cat: 'customization', script: true,
       desc: 'Replaces the menu bar with one you configure completely — any data, any layout, any style. For people who want the bar to show exactly what they choose.',
       dl: 'https://github.com/FelixKratz/SketchyBar', src: 'https://felixkratz.github.io/SketchyBar/',
       note: 'Installed with Homebrew: <code>brew install FelixKratz/formulae/sketchybar</code>. Configuration is a shell script you write yourself.',
       kw: 'menu bar custom status configurable ricing widgets' },
-    { os: 'mac', name: 'Homebrew', tag: 'Install anything by name', icon: '🍻', color: '#ffb547', preview: 'pkgcli',
+    { os: 'mac', name: 'Homebrew', tag: 'Install anything by name', icon: '🍻', color: '#e0973f', preview: 'pkgcli',
       tags: ['Free', 'Open source', 'Packages'], cat: 'tweak', script: true,
       desc: 'The package manager macOS never had. Most apps on this page install with one line, and update together with a single command.',
       dl: 'https://brew.sh/', src: 'https://github.com/Homebrew/brew',
@@ -2282,231 +2335,231 @@ h1 .grad {
       kw: 'package manager install cli terminal cask update apps' },
 
     /* ----------------------------- Windows ----------------------------- */
-    { os: 'win', name: 'WizTree', tag: 'The fastest space analyser', icon: '🌳', color: '#35e0d0', preview: 'treemap',
+    { os: 'win', name: 'WizTree', tag: 'The fastest space analyser', icon: '🌳', color: '#6b8f4e', preview: 'treemap',
       tags: ['Free for personal use', 'Disk'], cat: 'clean',
       desc: 'Reads the NTFS master file table directly instead of walking folders, so it maps an entire drive in seconds and shows you exactly what is eating it.',
       dl: 'https://diskanalyzer.com/download', src: 'https://diskanalyzer.com/',
       kw: 'disk space analyser treemap large files ntfs storage full drive' },
-    { os: 'win', name: 'WinDirStat', tag: 'The classic treemap', icon: '📊', color: '#6c8cff', preview: 'treemap',
+    { os: 'win', name: 'WinDirStat', tag: 'The classic treemap', icon: '📊', color: '#4a7fd1', preview: 'treemap',
       tags: ['Free', 'Open source', 'Disk'], cat: 'clean',
       desc: 'The original disk usage treemap for Windows. Slower than WizTree but open source and still the clearest picture of a full drive.',
       dl: 'https://windirstat.net/', src: 'https://github.com/windirstat/windirstat',
       kw: 'disk space treemap analyse storage large files folders' },
-    { os: 'win', name: 'TreeSize Free', tag: 'Folder sizes, ranked', icon: '📁', color: '#6fe9dc', preview: 'treemap',
+    { os: 'win', name: 'TreeSize Free', tag: 'Folder sizes, ranked', icon: '📁', color: '#3f8f8a', preview: 'treemap',
       tags: ['Free', 'Disk'], cat: 'clean',
       desc: 'Scans and ranks folders by size straight from the Explorer right-click menu. The quickest answer to “where did my space go”.',
       dl: 'https://www.jam-software.com/treesize_free', src: 'https://www.jam-software.com/treesize_free',
       kw: 'disk space folder size analyse storage explorer scan' },
-    { os: 'win', name: 'CrystalDiskInfo', tag: 'Catch a dying drive', icon: '💽', color: '#ffb547', preview: 'drive',
+    { os: 'win', name: 'CrystalDiskInfo', tag: 'Catch a dying drive', icon: '💽', color: '#e0973f', preview: 'drive',
       tags: ['Free', 'Open source', 'Monitoring'], cat: 'monitor',
       desc: 'Reads S.M.A.R.T. data and tells you plainly whether a drive is healthy, with reallocated sector counts and temperature. Check it before you lose data, not after.',
       dl: 'https://crystalmark.info/en/software/crystaldiskinfo/', src: 'https://crystalmark.info/en/software/crystaldiskinfo/',
       kw: 'smart drive health ssd hdd failing sectors temperature disk' },
-    { os: 'win', name: 'CrystalDiskMark', tag: 'Is the drive actually fast?', icon: '📈', color: '#4fd8ff', preview: 'bench',
+    { os: 'win', name: 'CrystalDiskMark', tag: 'Is the drive actually fast?', icon: '📈', color: '#7a8699', preview: 'bench',
       tags: ['Free', 'Open source', 'Benchmark'], cat: 'monitor',
       desc: 'The standard storage benchmark. Confirms an SSD is running at the speed it should be, and catches one stuck in a slow mode.',
       dl: 'https://crystalmark.info/en/software/crystaldiskmark/', src: 'https://crystalmark.info/en/software/crystaldiskmark/',
       kw: 'benchmark ssd speed test read write sequential random disk' },
-    { os: 'win', name: 'CPU-Z', tag: 'What is actually inside', icon: '🔬', color: '#b06cff', preview: 'sensors',
+    { os: 'win', name: 'CPU-Z', tag: 'What is actually inside', icon: '🔬', color: '#c97b3a', preview: 'sensors',
       tags: ['Free', 'Monitoring'], cat: 'monitor',
       desc: 'Identifies your exact CPU, motherboard and memory including real RAM timings and whether XMP is actually enabled.',
       dl: 'https://www.cpuid.com/softwares/cpu-z.html', src: 'https://www.cpuid.com/',
       kw: 'cpu ram memory motherboard specs timings xmp hardware info' },
-    { os: 'win', name: 'HWMonitor', tag: 'Temps and voltages', icon: '🌡️', color: '#ff8fa0', preview: 'sensors',
+    { os: 'win', name: 'HWMonitor', tag: 'Temps and voltages', icon: '🌡️', color: '#b0503a', preview: 'sensors',
       tags: ['Free', 'Monitoring'], cat: 'monitor',
       desc: 'A lighter sensor readout than HWiNFO — temperatures, fan speeds and voltages at a glance, with min and max tracked.',
       dl: 'https://www.cpuid.com/softwares/hwmonitor.html', src: 'https://www.cpuid.com/',
       kw: 'temperature sensors voltage fan monitor hardware cpu gpu' },
-    { os: 'win', name: 'GPU-Z', tag: 'Everything about your GPU', icon: '🎮', color: '#35e0d0', preview: 'sensors',
+    { os: 'win', name: 'GPU-Z', tag: 'Everything about your GPU', icon: '🎮', color: '#6b8f4e', preview: 'sensors',
       tags: ['Free', 'Monitoring'], cat: 'monitor',
       desc: 'Full graphics card detail plus live clocks, temperature and load — and a render test that verifies a card is genuine, not relabelled.',
       dl: 'https://www.techpowerup.com/download/techpowerup-gpu-z/', src: 'https://www.techpowerup.com/gpuz/',
       kw: 'gpu graphics card vram clocks temperature sensors nvidia amd' },
-    { os: 'win', name: 'LibreHardwareMonitor', tag: 'Open-source sensors', icon: '📟', color: '#6fe9dc', preview: 'sensors',
+    { os: 'win', name: 'LibreHardwareMonitor', tag: 'Open-source sensors', icon: '📟', color: '#3f8f8a', preview: 'sensors',
       tags: ['Free', 'Open source', 'Monitoring'], cat: 'monitor',
       desc: 'Reads every temperature, fan and voltage sensor on the board, and can feed them to other tools. The maintained successor to Open Hardware Monitor.',
       dl: 'https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases/latest', src: 'https://github.com/LibreHardwareMonitor/LibreHardwareMonitor',
       kw: 'sensors temperature fan voltage monitor open hardware rgb' },
-    { os: 'win', name: 'System Informer', tag: 'Task Manager, serious', icon: '🔧', color: '#6c8cff', preview: 'startup',
+    { os: 'win', name: 'System Informer', tag: 'Task Manager, serious', icon: '🔧', color: '#4a7fd1', preview: 'startup',
       tags: ['Free', 'Open source', 'Monitoring'], cat: 'monitor',
       desc: 'Shows what every process is actually doing — files open, network connections, real memory use — and kills things Task Manager cannot. Formerly Process Hacker.',
       dl: 'https://github.com/winsiderss/systeminformer/releases/latest', src: 'https://systeminformer.sourceforge.io/',
       kw: 'task manager process hacker kill handles services monitor' },
-    { os: 'win', name: 'Autoruns', tag: 'Everything that auto-starts', icon: '🚦', color: '#ffb547', preview: 'startup',
+    { os: 'win', name: 'Autoruns', tag: 'Everything that auto-starts', icon: '🚦', color: '#e0973f', preview: 'startup',
       tags: ['Free', 'Microsoft', 'Startup'], cat: 'tweak',
       desc: 'Lists every single thing configured to run at startup — far beyond Task Manager\'s list — including services, drivers and scheduled tasks. The real fix for a slow boot.',
       dl: 'https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns', src: 'https://learn.microsoft.com/en-us/sysinternals/',
       note: 'Disable rather than delete entries, and leave anything you cannot identify alone.',
       kw: 'startup boot slow autostart services scheduled tasks sysinternals' },
-    { os: 'win', name: 'Sysinternals Suite', tag: 'Microsoft\'s deep toolbox', icon: '🧰', color: '#4fd8ff', preview: 'toolkit',
+    { os: 'win', name: 'Sysinternals Suite', tag: 'Microsoft\'s deep toolbox', icon: '🧰', color: '#7a8699', preview: 'toolkit',
       tags: ['Free', 'Microsoft', 'Utilities'], cat: 'monitor',
       desc: 'Around 70 expert tools in one download — Process Explorer, Autoruns, TCPView, Process Monitor. Written by Microsoft, and what support engineers actually use.',
       dl: 'https://learn.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite', src: 'https://learn.microsoft.com/en-us/sysinternals/',
       kw: 'process explorer monitor tcpview autoruns tools microsoft suite' },
-    { os: 'win', name: 'Flow Launcher', tag: 'A launcher that keeps up', icon: '🚀', color: '#b06cff', preview: 'launcher',
+    { os: 'win', name: 'Flow Launcher', tag: 'A launcher that keeps up', icon: '🚀', color: '#c97b3a', preview: 'launcher',
       tags: ['Free', 'Open source', 'Launcher'], cat: 'desktop',
       desc: 'Fast fuzzy launcher with plugins, file search, calculations and web shortcuts. Comfortably better than the Start menu and than PowerToys Run.',
       dl: 'https://www.flowlauncher.com/', src: 'https://github.com/Flow-Launcher/Flow.Launcher',
       kw: 'launcher search spotlight alfred plugins quick start menu' },
-    { os: 'win', name: 'GlazeWM', tag: 'i3 tiling for Windows', icon: '🪟', color: '#35e0d0', preview: 'tiling',
+    { os: 'win', name: 'GlazeWM', tag: 'i3 tiling for Windows', icon: '🪟', color: '#6b8f4e', preview: 'tiling',
       tags: ['Free', 'Open source', 'Windows'], cat: 'desktop',
       desc: 'Tiling window management driven entirely by the keyboard, modelled on i3. Windows arrange themselves and never overlap.',
       dl: 'https://github.com/glzr-io/glazewm/releases/latest', src: 'https://github.com/glzr-io/glazewm',
       kw: 'tiling window manager i3 keyboard workspaces layout' },
-    { os: 'win', name: 'komorebi', tag: 'Scriptable tiling', icon: '🍁', color: '#ff8fa0', preview: 'tiling',
+    { os: 'win', name: 'komorebi', tag: 'Scriptable tiling', icon: '🍁', color: '#b0503a', preview: 'tiling',
       tags: ['Free', 'Open source', 'Windows'], cat: 'desktop',
       desc: 'A tiling window manager controlled entirely through a command interface, so every rule and layout is scriptable and version-controllable.',
       dl: 'https://github.com/LGUG2Z/komorebi/releases/latest', src: 'https://lgug2z.github.io/komorebi/',
       kw: 'tiling window manager scriptable workspaces rules layout' },
-    { os: 'win', name: 'AltSnap', tag: 'Drag windows from anywhere', icon: '✋', color: '#6c8cff', preview: 'snap',
+    { os: 'win', name: 'AltSnap', tag: 'Drag windows from anywhere', icon: '✋', color: '#4a7fd1', preview: 'snap',
       tags: ['Free', 'Open source', 'Windows'], cat: 'desktop',
       desc: 'Hold Alt and drag from any point in a window to move it, or right-drag to resize. No more aiming for a title bar or a 3-pixel edge.',
       dl: 'https://github.com/RamonUnch/AltSnap/releases/latest', src: 'https://github.com/RamonUnch/AltSnap',
       kw: 'window move resize alt drag snap altdrag mouse' },
-    { os: 'win', name: 'Open-Shell', tag: 'The old Start menu back', icon: '🐚', color: '#ffb547', preview: 'taskbar',
+    { os: 'win', name: 'Open-Shell', tag: 'The old Start menu back', icon: '🐚', color: '#e0973f', preview: 'taskbar',
       tags: ['Free', 'Open source', 'Shell'], cat: 'customization',
       desc: 'Restores a classic, fast, fully searchable Start menu with no ads, no web results and no recommendations.',
       dl: 'https://github.com/Open-Shell/Open-Shell-Menu/releases/latest', src: 'https://open-shell.github.io/Open-Shell-Menu/',
       kw: 'start menu classic shell windows 11 10 restore ads' },
-    { os: 'win', name: 'Winaero Tweaker', tag: 'Hundreds of hidden settings', icon: '🎛️', color: '#b06cff', preview: 'toggles',
+    { os: 'win', name: 'Winaero Tweaker', tag: 'Hundreds of hidden settings', icon: '🎛️', color: '#c97b3a', preview: 'toggles',
       tags: ['Free', 'Tweaks'], cat: 'tweak',
       desc: 'Collects hundreds of registry tweaks into one searchable app with a description of each — and an undo for every one.',
       dl: 'https://winaero.com/winaero-tweaker/', src: 'https://winaero.com/winaero-tweaker/',
       kw: 'tweak registry settings customise hidden windows appearance' },
-    { os: 'win', name: 'Wintoys', tag: 'Tidy tuning, one app', icon: '🧸', color: '#4fd8ff', preview: 'toggles',
+    { os: 'win', name: 'Wintoys', tag: 'Tidy tuning, one app', icon: '🧸', color: '#7a8699', preview: 'toggles',
       tags: ['Free', 'Microsoft Store', 'Tweaks'], cat: 'tweak',
       desc: 'A well-made single app for debloating, managing services and apps, tweaking behaviour and running repairs — with each change explained.',
       dl: 'https://apps.microsoft.com/detail/9p8ltpgcbzxd', src: 'https://apps.microsoft.com/detail/9p8ltpgcbzxd',
       kw: 'debloat tweak services repair health apps optimise store' },
-    { os: 'win', name: 'Optimizer', tag: 'Portable hardening', icon: '⚡', color: '#6fe9dc', preview: 'toggles',
+    { os: 'win', name: 'Optimizer', tag: 'Portable hardening', icon: '⚡', color: '#3f8f8a', preview: 'toggles',
       tags: ['Free', 'Open source', 'Debloat'], cat: 'tweak',
       desc: 'Portable tool for disabling telemetry, removing bloat, hardening privacy and cleaning up — no install, and it explains each toggle.',
       dl: 'https://github.com/hellzerg/optimizer/releases/latest', src: 'https://github.com/hellzerg/optimizer',
       note: 'Make a restore point first. It changes system settings, which is the point of it.',
       kw: 'debloat privacy telemetry harden portable tweak optimise' },
-    { os: 'win', name: 'SophiApp', tag: 'The big tweak script, with a UI', icon: '🎓', color: '#8ea6ff', preview: 'toggles',
+    { os: 'win', name: 'SophiApp', tag: 'The big tweak script, with a UI', icon: '🎓', color: '#6f93d9', preview: 'toggles',
       tags: ['Free', 'Open source', 'Debloat'], cat: 'tweak',
       desc: 'A GUI over the well-regarded Sophia tweak collection — hundreds of documented Windows settings, each reversible.',
       dl: 'https://github.com/Sophia-Community/SophiApp/releases/latest', src: 'https://github.com/Sophia-Community/SophiApp',
       kw: 'tweak debloat privacy sophia settings windows 11 harden' },
-    { os: 'win', name: 'MSEdgeRedirect', tag: 'Open links in your browser', icon: '↪️', color: '#ff8fa0', preview: 'toggles',
+    { os: 'win', name: 'MSEdgeRedirect', tag: 'Open links in your browser', icon: '↪️', color: '#b0503a', preview: 'toggles',
       tags: ['Free', 'Open source', 'Tweaks'], cat: 'tweak',
       desc: 'Forces Windows search, widgets and help links to open in your actual default browser instead of jumping to Edge.',
       dl: 'https://github.com/rcmaehl/MSEdgeRedirect/releases/latest', src: 'https://github.com/rcmaehl/MSEdgeRedirect',
       kw: 'edge default browser redirect links search widgets' },
-    { os: 'win', name: 'NanaZip', tag: '7-Zip, modernised', icon: '🗄️', color: '#35e0d0', preview: 'archive',
+    { os: 'win', name: 'NanaZip', tag: '7-Zip, modernised', icon: '🗄️', color: '#6b8f4e', preview: 'archive',
       tags: ['Free', 'Open source', 'Archives'], cat: 'files',
       desc: 'A fork of 7-Zip built for Windows 11 — proper right-click menu integration, dark mode, and the same compression underneath.',
       dl: 'https://github.com/M2Team/NanaZip/releases/latest', src: 'https://github.com/M2Team/NanaZip',
       kw: 'archive zip 7z rar extract compress windows 11 context menu' },
-    { os: 'win', name: 'Ditto', tag: 'Clipboard history', icon: '📋', color: '#6c8cff', preview: 'clipboard',
+    { os: 'win', name: 'Ditto', tag: 'Clipboard history', icon: '📋', color: '#4a7fd1', preview: 'clipboard',
       tags: ['Free', 'Open source', 'Clipboard'], cat: 'input',
       desc: 'Keeps everything you copy, searchable, with optional sync between machines. More capable than the built-in Win+V.',
       dl: 'https://github.com/sabrogden/Ditto/releases/latest', src: 'https://ditto-cp.sourceforge.io/',
       kw: 'clipboard history paste manager search sync copy' },
-    { os: 'win', name: 'ScreenToGif', tag: 'Record, edit, export a GIF', icon: '🎬', color: '#b06cff', preview: 'record',
+    { os: 'win', name: 'ScreenToGif', tag: 'Record, edit, export a GIF', icon: '🎬', color: '#c97b3a', preview: 'record',
       tags: ['Free', 'Open source', 'Recording'], cat: 'capture',
       desc: 'Records a region and drops you into a frame-by-frame editor before exporting. The best free way to make a short demo clip.',
       dl: 'https://www.screentogif.com/', src: 'https://github.com/NickeManarin/ScreenToGif',
       kw: 'gif record screen capture editor frames animation export' },
-    { os: 'win', name: 'Greenshot', tag: 'Lightweight capture', icon: '📷', color: '#6fe9dc', preview: 'capture',
+    { os: 'win', name: 'Greenshot', tag: 'Lightweight capture', icon: '📷', color: '#3f8f8a', preview: 'capture',
       tags: ['Free', 'Open source', 'Screenshots'], cat: 'capture',
       desc: 'Small, fast screenshot tool with an annotation editor and direct export. A simpler alternative if ShareX is more than you need.',
       dl: 'https://getgreenshot.org/', src: 'https://github.com/greenshot/greenshot',
       kw: 'screenshot capture annotate region export lightweight' },
-    { os: 'win', name: 'Twinkle Tray', tag: 'Brightness in the tray', icon: '🔅', color: '#ffb547', preview: 'brightness',
+    { os: 'win', name: 'Twinkle Tray', tag: 'Brightness in the tray', icon: '🔅', color: '#e0973f', preview: 'brightness',
       tags: ['Free', 'Open source', 'Display'], cat: 'display',
       desc: 'Adds brightness sliders for every external monitor to the system tray, and can follow the time of day automatically.',
       dl: 'https://twinkletray.com/', src: 'https://github.com/xanderfrangos/twinkle-tray',
       kw: 'brightness monitor external tray ddc sliders display' },
-    { os: 'win', name: 'Monitorian', tag: 'Minimal brightness control', icon: '🔆', color: '#4fd8ff', preview: 'brightness',
+    { os: 'win', name: 'Monitorian', tag: 'Minimal brightness control', icon: '🔆', color: '#7a8699', preview: 'brightness',
       tags: ['Free', 'Open source', 'Display'], cat: 'display',
       desc: 'A tiny tray utility to adjust brightness on multiple monitors at once, including in unison. Does one job perfectly.',
       dl: 'https://github.com/emoacht/Monitorian/releases/latest', src: 'https://github.com/emoacht/Monitorian',
       kw: 'brightness monitor multiple external adjust tray ddc' },
-    { os: 'win', name: 'SharpKeys', tag: 'Remap a key permanently', icon: '🔑', color: '#35e0d0', preview: 'keymap',
+    { os: 'win', name: 'SharpKeys', tag: 'Remap a key permanently', icon: '🔑', color: '#6b8f4e', preview: 'keymap',
       tags: ['Free', 'Open source', 'Input'], cat: 'input',
       desc: 'Writes a key remap straight into the registry, so it applies before login and needs nothing running in the background.',
       dl: 'https://github.com/randyrants/sharpkeys/releases/latest', src: 'https://github.com/randyrants/sharpkeys',
       kw: 'keyboard remap key registry caps lock disable swap' },
-    { os: 'win', name: 'AutoHotkey', tag: 'Automate anything', icon: '🅰️', color: '#b06cff', preview: 'keymap',
+    { os: 'win', name: 'AutoHotkey', tag: 'Automate anything', icon: '🅰️', color: '#c97b3a', preview: 'keymap',
       tags: ['Free', 'Open source', 'Automation'], cat: 'input',
       desc: 'A scripting language for the whole desktop — hotkeys, text expansion, window control, full macros. If Windows can do it, this can trigger it.',
       dl: 'https://www.autohotkey.com/download/', src: 'https://github.com/AutoHotkey/AutoHotkey',
       kw: 'automation macro hotkey script remap text expansion ahk' },
-    { os: 'win', name: 'Rufus', tag: 'Bootable USBs, fast', icon: '💿', color: '#ff8fa0', preview: 'usb',
+    { os: 'win', name: 'Rufus', tag: 'Bootable USBs, fast', icon: '💿', color: '#b0503a', preview: 'usb',
       tags: ['Free', 'Open source', 'Boot'], cat: 'files',
       desc: 'Creates bootable USB drives quickly, and can strip the Microsoft account and TPM requirements out of a Windows 11 installer as it writes.',
       dl: 'https://rufus.ie/', src: 'https://github.com/pbatard/rufus',
       kw: 'usb bootable iso windows install tpm bypass flash drive' },
-    { os: 'win', name: 'Bulk Crap Uninstaller', tag: 'Remove fifty things at once', icon: '🧹', color: '#6c8cff', preview: 'cleaner',
+    { os: 'win', name: 'Bulk Crap Uninstaller', tag: 'Remove fifty things at once', icon: '🧹', color: '#4a7fd1', preview: 'cleaner',
       tags: ['Free', 'Open source', 'Cleanup'], cat: 'clean',
       desc: 'Batch-uninstalls everything you tick, including Store apps and things with no uninstaller, then sweeps the leftovers. Ideal on a new prebuilt PC.',
       dl: 'https://www.bcuninstaller.com/', src: 'https://github.com/Klocman/Bulk-Crap-Uninstaller',
       kw: 'uninstall batch bloatware remove leftovers store apps cleanup' },
-    { os: 'win', name: 'Geek Uninstaller', tag: 'Portable and instant', icon: '👓', color: '#6fe9dc', preview: 'cleaner',
+    { os: 'win', name: 'Geek Uninstaller', tag: 'Portable and instant', icon: '👓', color: '#3f8f8a', preview: 'cleaner',
       tags: ['Free', 'Cleanup'], cat: 'clean',
       desc: 'A single portable executable that lists your programs instantly and force-removes the ones that will not go quietly.',
       dl: 'https://geekuninstaller.com/download', src: 'https://geekuninstaller.com/',
       kw: 'uninstall portable force remove leftovers registry programs' },
-    { os: 'win', name: 'PatchCleaner', tag: 'Clear the installer graveyard', icon: '🩹', color: '#ffb547', preview: 'cleaner',
+    { os: 'win', name: 'PatchCleaner', tag: 'Clear the installer graveyard', icon: '🩹', color: '#e0973f', preview: 'cleaner',
       tags: ['Free', 'Cleanup'], cat: 'clean',
       desc: 'Windows\\Installer quietly hoards orphaned patch files, often many gigabytes. This finds the ones nothing references any more.',
       dl: 'https://www.homedev.com.au/free/patchcleaner', src: 'https://www.homedev.com.au/free/patchcleaner',
       note: 'Move the files to a folder rather than deleting on the first run, so you can put them back if anything complains.',
       kw: 'windows installer orphaned msi msp disk space cleanup winsxs' },
-    { os: 'win', name: 'Display Driver Uninstaller', tag: 'A truly clean GPU driver', icon: '🧽', color: '#8ea6ff', preview: 'driver',
+    { os: 'win', name: 'Display Driver Uninstaller', tag: 'A truly clean GPU driver', icon: '🧽', color: '#6f93d9', preview: 'driver',
       tags: ['Free', 'Drivers'], cat: 'tweak',
       desc: 'Strips every trace of a graphics driver — files, registry keys, services — so a fresh install is genuinely fresh. The standard fix for driver-related crashes and stutter.',
       dl: 'https://www.wagnardsoft.com/', src: 'https://www.wagnardsoft.com/',
       note: 'Run it in Safe Mode, and have the replacement driver downloaded before you start.',
       kw: 'gpu driver uninstall clean nvidia amd ddu crash stutter safe mode' },
-    { os: 'win', name: 'Windows Terminal', tag: 'The terminal Windows needed', icon: '⌨️', color: '#4fd8ff', preview: 'terminal',
+    { os: 'win', name: 'Windows Terminal', tag: 'The terminal Windows needed', icon: '⌨️', color: '#7a8699', preview: 'terminal',
       tags: ['Free', 'Open source', 'Microsoft'], cat: 'tweak',
       desc: 'Tabs, panes, GPU-accelerated text and proper Unicode, across PowerShell, CMD and WSL in one window.',
       dl: 'https://github.com/microsoft/terminal/releases/latest', src: 'https://github.com/microsoft/terminal',
       kw: 'terminal powershell cmd wsl tabs console shell microsoft' },
-    { os: 'win', name: 'winget', tag: 'Install from the command line', icon: '📥', color: '#6c8cff', preview: 'pkgcli',
+    { os: 'win', name: 'winget', tag: 'Install from the command line', icon: '📥', color: '#4a7fd1', preview: 'pkgcli',
       tags: ['Free', 'Open source', 'Microsoft'], cat: 'tweak',
       desc: 'Microsoft\'s built-in package manager. Already on Windows 11 — <code>winget upgrade --all</code> updates everything you have installed in one go.',
       dl: 'https://github.com/microsoft/winget-cli/releases/latest', src: 'https://learn.microsoft.com/en-us/windows/package-manager/',
       kw: 'package manager install update cli command line apps microsoft' },
-    { os: 'win', name: 'Scoop', tag: 'Portable installs, no prompts', icon: '🥄', color: '#35e0d0', preview: 'pkgcli',
+    { os: 'win', name: 'Scoop', tag: 'Portable installs, no prompts', icon: '🥄', color: '#6b8f4e', preview: 'pkgcli',
       tags: ['Free', 'Open source', 'Packages'], cat: 'tweak', script: true,
       desc: 'Installs command-line tools into your home folder with no UAC prompts and no PATH mess. The cleanest way to manage developer tooling on Windows.',
       dl: 'https://scoop.sh/', src: 'https://github.com/ScoopInstaller/Scoop',
       note: 'Install from PowerShell: <code>irm get.scoop.sh | iex</code> — no admin rights required.',
       kw: 'package manager portable install cli command line no admin' },
-    { os: 'win', name: 'Chocolatey', tag: 'Package manager for everything', icon: '🍫', color: '#b06cff', preview: 'pkgcli',
+    { os: 'win', name: 'Chocolatey', tag: 'Package manager for everything', icon: '🍫', color: '#c97b3a', preview: 'pkgcli',
       tags: ['Free tier', 'Open source', 'Packages'], cat: 'tweak', script: true,
       desc: 'The longest-established Windows package manager, with by far the largest catalogue including plenty winget still lacks.',
       dl: 'https://chocolatey.org/install', src: 'https://chocolatey.org/',
       note: 'Install with the PowerShell one-liner on the site, run as Administrator.',
       kw: 'package manager install update cli choco apps automation' },
-    { os: 'win', name: 'Microsoft PC Manager', tag: 'Official, safe basics', icon: '🩵', color: '#4fd8ff', preview: 'toolkit',
+    { os: 'win', name: 'Microsoft PC Manager', tag: 'Official, safe basics', icon: '🩵', color: '#7a8699', preview: 'toolkit',
       tags: ['Free', 'Microsoft', 'Cleanup'], cat: 'clean',
       desc: 'Microsoft\'s own cleanup and startup tool. Far less powerful than the tweak suites here, but it will never break anything — a safe first stop.',
       dl: 'https://pcmanager.microsoft.com/', src: 'https://pcmanager.microsoft.com/',
       kw: 'cleanup temporary files startup boost official microsoft safe' },
-    { os: 'win', name: 'WinSCP', tag: 'Files to and from servers', icon: '🔀', color: '#ffb547', preview: 'explorer',
+    { os: 'win', name: 'WinSCP', tag: 'Files to and from servers', icon: '🔀', color: '#e0973f', preview: 'explorer',
       tags: ['Free', 'Open source', 'Transfer'], cat: 'transfer',
       desc: 'A dual-pane SFTP, SCP and FTP client with directory sync and an integrated editor. The default choice for moving files to a server.',
       dl: 'https://winscp.net/eng/download.php', src: 'https://winscp.net/',
       kw: 'sftp ftp scp transfer server files sync remote upload' },
 
     /* ------------------------- look & feel ------------------------- */
-    { os: 'both', name: 'Unsplash Wallpapers', tag: 'A new wallpaper, on schedule', icon: '🖼️', color: '#ff8fa0', preview: 'calendar',
+    { os: 'both', name: 'Unsplash Wallpapers', tag: 'A new wallpaper, on schedule', icon: '🖼️', color: '#b0503a', preview: 'calendar',
       tags: ['Free', 'Open source', 'Wallpaper'], cat: 'customization',
       desc: 'Sits in the tray and swaps your wallpaper from Unsplash on whatever schedule you set — hourly, daily, weekly — and keeps a history so you can revert one you liked.',
       dl: 'https://github.com/soroushchehresa/unsplash-wallpapers/releases/latest', src: 'https://github.com/soroushchehresa/unsplash-wallpapers',
       note: 'Last released in 2021. Still works, but it is not under active development — if it stops behaving on a future OS update, that is why.',
       kw: 'wallpaper unsplash background desktop rotate schedule photo' },
-    { os: 'mac', name: 'Aerial', tag: 'Apple TV screensavers on your Mac', icon: '🌍', color: '#4fd8ff', preview: 'player',
+    { os: 'mac', name: 'Aerial', tag: 'Apple TV screensavers on your Mac', icon: '🌍', color: '#7a8699', preview: 'player',
       tags: ['Free', 'Open source', 'Screensaver'], cat: 'customization',
       desc: 'The drone footage screensaver from the Apple TV, running as an actual macOS screensaver — aerial shots of cities, oceans, space, in the System Settings you already know.',
       dl: 'https://github.com/JohnCoates/Aerial/releases/latest', src: 'https://github.com/JohnCoates/Aerial',
       kw: 'screensaver aerial apple tv video wallpaper ambient' },
-    { os: 'win', name: 'Lively Wallpaper', tag: 'A live scene as your desktop', icon: '🌊', color: '#35e0d0', preview: 'player',
+    { os: 'win', name: 'Lively Wallpaper', tag: 'A live scene as your desktop', icon: '🌊', color: '#6b8f4e', preview: 'player',
       tags: ['Free', 'Open source', 'Wallpaper'], cat: 'customization',
       desc: 'Runs a video, a web page or a shader as your desktop background, and pauses itself automatically the moment a game or a full-screen app takes over so it costs nothing while you are not looking at it.',
       dl: 'https://github.com/rocksdanister/lively/releases/latest', src: 'https://github.com/rocksdanister/lively',
@@ -2585,7 +2638,7 @@ h1 .grad {
   // Hero float cards use the same renderers, so the page never shows a mockup
   // style the cards below don't also use.
   document.querySelectorAll('[data-preview]').forEach(function (el) {
-    var c = { snap: '#6c8cff', devices: '#35e0d0', monitor: '#b06cff' }[el.dataset.preview];
+    var c = { snap: '#4a7fd1', devices: '#6b8f4e', monitor: '#c97b3a' }[el.dataset.preview];
     el.innerHTML = preview(el.dataset.preview, c);
   });
 
@@ -2660,6 +2713,41 @@ h1 .grad {
     activeCat = btn.dataset.cat;
     apply();
   });
+
+  /* Filters panel: closed by default, opened on demand, closes itself again
+     once a choice is made or the user clicks/tabs away. The badge on the
+     toggle button is the only thing visible when it's shut, so someone with
+     an active filter can still tell at a glance. */
+  var filterToggle = document.getElementById('filterToggle');
+  var filterPanel = document.getElementById('filterPanel');
+  var filterCount = document.getElementById('filterCount');
+
+  function setFilterPanel(open) {
+    filterPanel.classList.toggle('open', open);
+    filterToggle.classList.toggle('on', open);
+    filterToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function updateFilterCount() {
+    var n = (activeOS !== 'all' ? 1 : 0) + (activeCat !== 'all' ? 1 : 0);
+    filterCount.textContent = n;
+    filterCount.hidden = n === 0;
+  }
+  filterToggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    setFilterPanel(!filterPanel.classList.contains('open'));
+  });
+  filterPanel.addEventListener('click', function (e) {
+    if (e.target.closest('.chip')) { updateFilterCount(); setFilterPanel(false); }
+  });
+  document.addEventListener('click', function (e) {
+    if (!filterPanel.classList.contains('open')) return;
+    if (filterPanel.contains(e.target) || filterToggle.contains(e.target)) return;
+    setFilterPanel(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && filterPanel.classList.contains('open')) setFilterPanel(false);
+  });
+  updateFilterCount();
 
   /* =========================================================================
      TERMINAL & POWERSHELL — no download
