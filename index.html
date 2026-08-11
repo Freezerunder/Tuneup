@@ -141,6 +141,43 @@ body {
 }
 .nav-links a:hover { color: var(--text); background: var(--panel-hi); }
 
+/* Fixed side rail — small icon buttons docked to the right edge, always in
+   the same spot regardless of scroll position. Labels stay hidden until
+   hover/focus so the rail reads as compact dots, not another button row. */
+.side-nav {
+  position: fixed;
+  right: 16px; top: 50%;
+  transform: translateY(-50%);
+  z-index: 55;
+  display: flex; flex-direction: column; gap: 7px;
+}
+.side-nav a {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--panel); border: 1px solid var(--line-hi);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  font-size: 13px; text-decoration: none;
+  transition: background .18s, border-color .18s, transform .18s;
+}
+.side-nav .side-ico { line-height: 1; }
+.side-nav a:hover, .side-nav a.on { background: var(--panel-hi); border-color: var(--accent); transform: scale(1.1); }
+.side-nav a.on { box-shadow: 0 0 0 2px rgba(108,140,255,.32); }
+.side-nav .side-label {
+  position: absolute; right: 40px; top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: rgba(5,6,12,.94); border: 1px solid var(--line-hi);
+  padding: 5px 10px; border-radius: 7px;
+  font-size: 12px; font-weight: 600; color: var(--text);
+  white-space: nowrap; opacity: 0; pointer-events: none;
+  transition: opacity .15s, transform .15s;
+}
+.side-nav a:hover .side-label, .side-nav a:focus-visible .side-label { opacity: 1; transform: translateY(-50%) translateX(0); }
+@media (max-width: 1120px) { .side-nav { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .side-nav a, .side-nav .side-label { transition: none; }
+}
+
 /* ------------------------------- hero ------------------------------------- */
 .hero {
   position: relative;
@@ -205,16 +242,6 @@ h1 .grad {
 .hero-stats { display: flex; gap: 30px; margin-top: 38px; flex-wrap: wrap; }
 .stat .n { font-size: 27px; font-weight: 800; letter-spacing: -.02em; }
 .stat .l { font-size: 12.5px; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; }
-
-.jump-nav { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 26px; }
-.jump-nav a {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 9px 16px; border-radius: 999px; font-size: 13.5px; font-weight: 600;
-  color: var(--muted); text-decoration: none;
-  background: var(--panel); border: 1px solid var(--line-hi);
-  transition: color .18s, background .18s, border-color .18s, transform .18s;
-}
-.jump-nav a:hover { color: var(--text); background: var(--panel-hi); border-color: var(--accent); transform: translateY(-2px); }
 
 /* Floating hero card stack — three cards at different Z depths, driven by the
    pointer so the scene parallaxes as a single camera move. */
@@ -543,6 +570,15 @@ h1 .grad {
 
 <div class="wrap">
 
+  <nav class="side-nav" id="sideNav" aria-label="Jump to section">
+    <a href="#cross" data-target="cross"><span class="side-ico">🔗</span><span class="side-label">Both</span></a>
+    <a href="#macos" data-target="macos"><span class="side-ico">🍎</span><span class="side-label">macOS</span></a>
+    <a href="#windows" data-target="windows"><span class="side-ico">🪟</span><span class="side-label">Windows</span></a>
+    <a href="#terminal" data-target="terminal"><span class="side-ico">⌨️</span><span class="side-label">Terminal</span></a>
+    <a href="#doctor" data-target="doctor"><span class="side-ico">🩺</span><span class="side-label">Doctor</span></a>
+    <a href="#how" data-target="how"><span class="side-ico">✅</span><span class="side-label">How this works</span></a>
+  </nav>
+
   <nav class="nav">
     <div class="container nav-inner">
       <div class="brand"><span class="bolt">⚡</span> Tuneup</div>
@@ -577,13 +613,6 @@ h1 .grad {
           <div class="stat"><div class="n">100%</div><div class="l">Official links</div></div>
           <div class="stat"><div class="n">0</div><div class="l">Trackers</div></div>
         </div>
-        <nav class="jump-nav" aria-label="Jump to section">
-          <a href="#cross">🔗 Both</a>
-          <a href="#macos">🍎 macOS</a>
-          <a href="#windows">🪟 Windows</a>
-          <a href="#terminal">⌨️ Terminal</a>
-          <a href="#doctor">🩺 Doctor</a>
-        </nav>
       </div>
 
       <div class="hero-scene" id="heroScene" aria-hidden="true">
@@ -2948,6 +2977,32 @@ h1 .grad {
   initMotion();
   // If someone flips the OS setting mid-visit, respect it without a reload.
   if (reduced.addEventListener) reduced.addEventListener('change', function () { location.reload(); });
+
+  /* =========================================================================
+     SIDE NAV — active-section highlight
+     A UI utility, not decoration, so it runs even under reduced-motion (only
+     the hover transitions are stripped there, not this logic).
+     ========================================================================= */
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+    if (!links.length) return;
+    var linkByTarget = {};
+    links.forEach(function (a) { linkByTarget[a.dataset.target] = a; });
+
+    var sections = ['cross', 'macos', 'windows', 'terminal', 'doctor', 'how']
+      .map(function (id) { return document.getElementById(id); })
+      .filter(Boolean);
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkByTarget[entry.target.id];
+        if (!link) return;
+        link.classList.toggle('on', entry.isIntersecting);
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' }); // fires when a section crosses the vertical middle of the viewport
+
+    sections.forEach(function (s) { io.observe(s); });
+  })();
 
 })();
 </script>
