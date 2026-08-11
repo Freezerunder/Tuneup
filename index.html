@@ -206,6 +206,16 @@ h1 .grad {
 .stat .n { font-size: 27px; font-weight: 800; letter-spacing: -.02em; }
 .stat .l { font-size: 12.5px; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; }
 
+.jump-nav { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 26px; }
+.jump-nav a {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 16px; border-radius: 999px; font-size: 13.5px; font-weight: 600;
+  color: var(--muted); text-decoration: none;
+  background: var(--panel); border: 1px solid var(--line-hi);
+  transition: color .18s, background .18s, border-color .18s, transform .18s;
+}
+.jump-nav a:hover { color: var(--text); background: var(--panel-hi); border-color: var(--accent); transform: translateY(-2px); }
+
 /* Floating hero card stack — three cards at different Z depths, driven by the
    pointer so the scene parallaxes as a single camera move. */
 .hero-scene { position: relative; height: 430px; transform-style: preserve-3d; }
@@ -567,6 +577,13 @@ h1 .grad {
           <div class="stat"><div class="n">100%</div><div class="l">Official links</div></div>
           <div class="stat"><div class="n">0</div><div class="l">Trackers</div></div>
         </div>
+        <nav class="jump-nav" aria-label="Jump to section">
+          <a href="#cross">🔗 Both</a>
+          <a href="#macos">🍎 macOS</a>
+          <a href="#windows">🪟 Windows</a>
+          <a href="#terminal">⌨️ Terminal</a>
+          <a href="#doctor">🩺 Doctor</a>
+        </nav>
       </div>
 
       <div class="hero-scene" id="heroScene" aria-hidden="true">
