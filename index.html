@@ -287,7 +287,7 @@ h1 .grad {
    once you scroll; a per-section root keeps the vanishing point local. */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 22px;
   perspective: 1600px;
 }
@@ -479,6 +479,16 @@ h1 .grad {
 @media (max-width: 860px) { .doctor-body { grid-template-columns: 1fr; } }
 
 /* ------------------------------ responsive -------------------------------- */
+/* On wide monitors the 1180px container leaves a lot of dead space either
+   side. Widen it in steps as room allows — 4 columns of app cards around
+   1400px, 5 columns past ~1700px — rather than jumping straight to a fixed
+   column count, so the layout stays fluid at in-between widths too. */
+@media (min-width: 1400px) {
+  .container { width: min(1360px, 90vw); }
+}
+@media (min-width: 1700px) {
+  .container { width: min(1680px, 88vw); }
+}
 @media (max-width: 960px) {
   .hero-grid { grid-template-columns: 1fr; gap: 30px; }
   .hero-scene { height: 360px; transform: scale(.9); transform-origin: top center; }
@@ -2106,7 +2116,7 @@ h1 .grad {
       note: 'Some features need System Integrity Protection partially disabled. Read the wiki before you do that — it is a real security trade-off.',
       kw: 'tiling window manager scriptable bsp spaces power user' },
     { os: 'mac', name: 'Hidden Bar', tag: 'Menu bar, minimal', icon: '➖', color: '#35e0d0', preview: 'menubar',
-      tags: ['Free', 'Open source', 'Menu bar'], cat: 'desktop',
+      tags: ['Free', 'Open source', 'Menu bar'], cat: 'customization',
       desc: 'A lighter alternative to Ice — one divider, drag icons behind it, done. Tiny and native.',
       dl: 'https://github.com/dwarvesf/hidden/releases/latest', src: 'https://github.com/dwarvesf/hidden',
       kw: 'menu bar hide icons declutter bartender minimal' },
@@ -2213,7 +2223,7 @@ h1 .grad {
       dl: 'https://sindresorhus.com/gifski', src: 'https://github.com/sindresorhus/Gifski',
       kw: 'gif convert video quality palette encode animation' },
     { os: 'mac', name: 'SketchyBar', tag: 'Build your own menu bar', icon: '📐', color: '#6fe9dc', preview: 'menubar',
-      tags: ['Free', 'Open source', 'Menu bar'], cat: 'desktop', script: true,
+      tags: ['Free', 'Open source', 'Menu bar'], cat: 'customization', script: true,
       desc: 'Replaces the menu bar with one you configure completely — any data, any layout, any style. For people who want the bar to show exactly what they choose.',
       dl: 'https://github.com/FelixKratz/SketchyBar', src: 'https://felixkratz.github.io/SketchyBar/',
       note: 'Installed with Homebrew: <code>brew install FelixKratz/formulae/sketchybar</code>. Configuration is a shell script you write yourself.',
@@ -2308,7 +2318,7 @@ h1 .grad {
       dl: 'https://github.com/RamonUnch/AltSnap/releases/latest', src: 'https://github.com/RamonUnch/AltSnap',
       kw: 'window move resize alt drag snap altdrag mouse' },
     { os: 'win', name: 'Open-Shell', tag: 'The old Start menu back', icon: '🐚', color: '#ffb547', preview: 'taskbar',
-      tags: ['Free', 'Open source', 'Shell'], cat: 'desktop',
+      tags: ['Free', 'Open source', 'Shell'], cat: 'customization',
       desc: 'Restores a classic, fast, fully searchable Start menu with no ads, no web results and no recommendations.',
       dl: 'https://github.com/Open-Shell/Open-Shell-Menu/releases/latest', src: 'https://open-shell.github.io/Open-Shell-Menu/',
       kw: 'start menu classic shell windows 11 10 restore ads' },
@@ -2440,18 +2450,18 @@ h1 .grad {
 
     /* ------------------------- look & feel ------------------------- */
     { os: 'both', name: 'Unsplash Wallpapers', tag: 'A new wallpaper, on schedule', icon: '🖼️', color: '#ff8fa0', preview: 'calendar',
-      tags: ['Free', 'Open source', 'Wallpaper'], cat: 'experience',
+      tags: ['Free', 'Open source', 'Wallpaper'], cat: 'customization',
       desc: 'Sits in the tray and swaps your wallpaper from Unsplash on whatever schedule you set — hourly, daily, weekly — and keeps a history so you can revert one you liked.',
       dl: 'https://github.com/soroushchehresa/unsplash-wallpapers/releases/latest', src: 'https://github.com/soroushchehresa/unsplash-wallpapers',
       note: 'Last released in 2021. Still works, but it is not under active development — if it stops behaving on a future OS update, that is why.',
       kw: 'wallpaper unsplash background desktop rotate schedule photo' },
     { os: 'mac', name: 'Aerial', tag: 'Apple TV screensavers on your Mac', icon: '🌍', color: '#4fd8ff', preview: 'player',
-      tags: ['Free', 'Open source', 'Screensaver'], cat: 'experience',
+      tags: ['Free', 'Open source', 'Screensaver'], cat: 'customization',
       desc: 'The drone footage screensaver from the Apple TV, running as an actual macOS screensaver — aerial shots of cities, oceans, space, in the System Settings you already know.',
       dl: 'https://github.com/JohnCoates/Aerial/releases/latest', src: 'https://github.com/JohnCoates/Aerial',
       kw: 'screensaver aerial apple tv video wallpaper ambient' },
     { os: 'win', name: 'Lively Wallpaper', tag: 'A live scene as your desktop', icon: '🌊', color: '#35e0d0', preview: 'player',
-      tags: ['Free', 'Open source', 'Wallpaper'], cat: 'experience',
+      tags: ['Free', 'Open source', 'Wallpaper'], cat: 'customization',
       desc: 'Runs a video, a web page or a shader as your desktop background, and pauses itself automatically the moment a game or a full-screen app takes over so it costs nothing while you are not looking at it.',
       dl: 'https://github.com/rocksdanister/lively/releases/latest', src: 'https://github.com/rocksdanister/lively',
       kw: 'live wallpaper animated video shader desktop background wallpaper engine' }
@@ -2460,7 +2470,7 @@ h1 .grad {
   var CAT_LABEL = {
     desktop: '🪟 Window & desktop', clean: '🧹 Cleanup', monitor: '📊 Monitoring', capture: '🎬 Capture & media',
     files: '🗂️ Files & archives', transfer: '📡 Transfer & backup', secure: '🔒 Security', input: '⌨️ Input',
-    display: '🖥️ Display & audio', tweak: '⚙️ Tweaks & packages', experience: '🎨 Look & feel'
+    display: '🖥️ Display & audio', tweak: '⚙️ Tweaks & packages', customization: '🎨 Customization'
   };
 
   /* Categories for the first 29 entries, which predate the `cat` field. Kept as
@@ -2468,10 +2478,10 @@ h1 .grad {
      exactly as they were checked. */
   var CAT_BY_NAME = {
     'LocalSend': 'transfer', 'Blip': 'transfer', 'Syncthing': 'transfer', 'Espanso': 'input', 'Ventoy': 'files',
-    'Sapphire': 'desktop', 'Ice': 'desktop', 'Rectangle': 'desktop', 'AlDente': 'display', 'Stats': 'monitor',
+    'Sapphire': 'customization', 'Ice': 'customization', 'Rectangle': 'desktop', 'AlDente': 'display', 'Stats': 'monitor',
     'Pearcleaner': 'clean', 'Maccy': 'input', 'BetterDisplay': 'display', 'Shottr': 'capture', 'Latest': 'tweak',
     'Mac Mouse Fix': 'input', 'PowerToys': 'desktop', 'Everything': 'files', 'WinUtil': 'tweak',
-    'O&O ShutUp10++': 'secure', 'UniGetUI': 'tweak', 'ShareX': 'capture', 'ExplorerPatcher': 'desktop',
+    'O&O ShutUp10++': 'secure', 'UniGetUI': 'tweak', 'ShareX': 'capture', 'ExplorerPatcher': 'customization',
     'Files': 'files', 'HWiNFO': 'monitor', 'Process Lasso': 'monitor', 'Revo Uninstaller': 'clean',
     'BleachBit': 'clean', '7-Zip': 'files'
   };
@@ -2521,7 +2531,9 @@ h1 .grad {
 
   ['both', 'mac', 'win'].forEach(function (os) {
     var grid = document.querySelector('[data-grid="' + os + '"]');
-    if (grid) grid.innerHTML = APPS.filter(function (a) { return a.os === os; }).map(cardHTML).join('');
+    if (grid) grid.innerHTML = APPS.filter(function (a) { return a.os === os; })
+      .sort(function (a, b) { return a.name.localeCompare(b.name); })
+      .map(cardHTML).join('');
   });
 
   // Hero float cards use the same renderers, so the page never shows a mockup
@@ -2537,7 +2549,7 @@ h1 .grad {
 
   // Category row only lists categories that actually have an app in them, in
   // a fixed reading order rather than array-discovery order.
-  var CAT_ORDER = ['desktop', 'clean', 'monitor', 'capture', 'files', 'transfer', 'secure', 'input', 'display', 'experience', 'tweak'];
+  var CAT_ORDER = ['desktop', 'clean', 'monitor', 'capture', 'files', 'transfer', 'secure', 'input', 'display', 'customization', 'tweak'];
   var present = {};
   APPS.forEach(function (a) { present[a.cat] = true; });
   var catBtns = ['<button class="chip on" data-cat="all">All categories</button>'].concat(
@@ -2860,8 +2872,8 @@ h1 .grad {
           card.style.setProperty('--mx', (px * 100) + '%');
           card.style.setProperty('--my', (py * 100) + '%');
           card.style.transform =
-            'perspective(900px) rotateY(' + ((px - .5) * 9).toFixed(2) + 'deg) ' +
-            'rotateX(' + ((.5 - py) * 9).toFixed(2) + 'deg) translateZ(16px)';
+            'perspective(1400px) rotateY(' + ((px - .5) * 2.5).toFixed(2) + 'deg) ' +
+            'rotateX(' + ((.5 - py) * 2.5).toFixed(2) + 'deg) translateZ(6px)';
         });
       });
       card.addEventListener('pointerleave', function () {
